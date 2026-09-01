@@ -22,9 +22,8 @@ export function ProfileImage({ priority = false, sizes }: ProfileImageProps) {
   }
 
   return (
-    <div className='text-muted-foreground absolute inset-0 flex flex-col items-center justify-center gap-3'>
+    <div className='text-muted-foreground absolute inset-0 flex items-center justify-center'>
       <UserRound className='h-16 w-16' aria-hidden />
-      <span className='font-mono text-xs tracking-wide uppercase'>Profile photo pending</span>
     </div>
   );
 }

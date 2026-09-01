@@ -4,7 +4,7 @@ import { constructMetadata } from '@/lib/seo';
 
 export const metadata = constructMetadata({
   title: 'Contact',
-  description: 'Contact methods and availability.',
+  description: 'Public contact details for Amirreza Hajizadeh.',
   path: '/contact',
 });
 
@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageHero
         label="Let's Connect"
         title='Contact'
-        description='Preferred contact methods, professional profiles, and availability.'
+        description='Public contact details and professional profiles.'
       />
       <div className='container mx-auto py-10 md:py-16'>
         <ContactSection />

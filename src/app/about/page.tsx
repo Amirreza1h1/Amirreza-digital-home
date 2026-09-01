@@ -15,7 +15,7 @@ import { education } from '@/data/education';
 
 export const metadata = constructMetadata({
   title: 'About',
-  description: 'Profile, background, interests, and professional information for the portfolio owner.',
+  description: profile.headline,
   path: '/about',
 });
 
@@ -40,26 +40,32 @@ export default function AboutPage() {
               About Me
             </span>
             <h1 className='text-foreground text-3xl font-bold tracking-tight md:text-4xl'>{profile.name}</h1>
-            <p className='text-muted-foreground font-mono text-sm'>{profile.tagline}</p>
-            <div className='text-muted-foreground mt-2 flex flex-col gap-3 text-sm leading-relaxed md:text-base'>
-              <p>{profile.bio}</p>
-            </div>
-            {(profile.currentRole || profile.academicRole || profile.location) && (
+            {profile.headline && (
+              <p className='text-muted-foreground font-mono text-sm'>{profile.headline}</p>
+            )}
+            {profile.bio && (
+              <div className='text-muted-foreground mt-2 flex flex-col gap-3 text-sm leading-relaxed md:text-base'>
+                <p>{profile.bio}</p>
+              </div>
+            )}
+            {(profile.roles.length > 0 || profile.location || profile.timeZone) && (
               <div className='mt-2 flex flex-wrap gap-2'>
-                {profile.currentRole && (
-                  <span className='border-primary/20 bg-primary/5 text-primary inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
-                    {profile.currentRole}
+                {profile.roles.map(role => (
+                  <span
+                    key={role}
+                    className='border-primary/20 bg-primary/5 text-primary inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'
+                  >
+                    {role}
                   </span>
-                )}
-                {profile.academicRole && (
-                  <span className='border-border bg-surface text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
-                    {profile.academicRole}
-                    {profile.institution ? ` • ${profile.institution}` : ''}
-                  </span>
-                )}
+                ))}
                 {profile.location && (
                   <span className='border-border bg-surface text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
                     {profile.location}
+                  </span>
+                )}
+                {profile.timeZone && (
+                  <span className='border-border bg-surface text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
+                    {profile.timeZone}
                   </span>
                 )}
               </div>
@@ -72,12 +78,14 @@ export default function AboutPage() {
 
       <div className='grid gap-10 lg:grid-cols-3 lg:gap-16'>
         <div className='flex flex-col gap-10 lg:col-span-2 lg:gap-12'>
-          <AnimatedSection>
-            <SectionHeader title='Research Direction' />
-            <p className='text-muted-foreground mt-4 text-sm leading-relaxed md:text-base'>
-              {profile.researchStatement}
-            </p>
-          </AnimatedSection>
+          {profile.researchStatement && (
+            <AnimatedSection>
+              <SectionHeader title='Research Direction' />
+              <p className='text-muted-foreground mt-4 text-sm leading-relaxed md:text-base'>
+                {profile.researchStatement}
+              </p>
+            </AnimatedSection>
+          )}
 
           <AnimatedSection delay={0.06}>
             <SectionHeader title='What I Build' />

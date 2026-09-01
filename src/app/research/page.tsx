@@ -28,14 +28,18 @@ export default function ResearchPage() {
           <ResearchAreaGrid areas={researchAreas} />
         </AnimatedSection>
 
-        <Separator />
+        {profile.researchStatement && (
+          <>
+            <Separator />
 
-        <AnimatedSection>
-          <SectionHeader title='Research Statement' />
-          <div className='mt-6 max-w-2xl'>
-            <p className='text-muted-foreground text-base leading-relaxed'>{profile.researchStatement}</p>
-          </div>
-        </AnimatedSection>
+            <AnimatedSection>
+              <SectionHeader title='Research Statement' />
+              <div className='mt-6 max-w-2xl'>
+                <p className='text-muted-foreground text-base leading-relaxed'>{profile.researchStatement}</p>
+              </div>
+            </AnimatedSection>
+          </>
+        )}
 
         <Separator />
 

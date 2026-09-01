@@ -1,18 +1,23 @@
 import Link from 'next/link';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, Link2 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { profile } from '@/data/profile';
+import { socials } from '@/data/socials';
 import { flatNavItems } from '@/data/navigation';
 import { Separator } from '@/components/ui/separator';
 import { Logo } from './Logo';
 
+const socialIconMap: Record<string, LucideIcon> = { Github, Linkedin, Send };
+
 const socialLinks = [
-  ...(profile.github
-    ? [{ href: `https://github.com/${profile.github}`, label: 'GitHub', icon: Github }]
-    : []),
-  ...(profile.linkedin
-    ? [{ href: `https://linkedin.com/in/${profile.linkedin}`, label: 'LinkedIn', icon: Linkedin }]
-    : []),
-  ...(profile.email ? [{ href: `mailto:${profile.email}`, label: 'Email', icon: Mail }] : []),
+  ...socials
+    .filter(social => social.url)
+    .map(social => ({
+      href: social.url as string,
+      label: social.name,
+      icon: socialIconMap[social.icon] ?? Link2,
+    })),
+  ...(profile.emails.length > 0 ? [{ href: '/contact', label: 'Contact', icon: Mail }] : []),
 ];
 
 export function Footer() {
@@ -30,15 +35,15 @@ export function Footer() {
             >
               <Logo className='h-8' />
             </Link>
-            <p className='text-muted-foreground max-w-xs text-sm'>{profile.tagline}</p>
+            {profile.headline && <p className='text-muted-foreground max-w-xs text-sm'>{profile.headline}</p>}
             {socialLinks.length > 0 && (
               <div className='flex items-center gap-3'>
                 {socialLinks.map(({ href, label, icon: Icon }) => (
                   <a
                     key={label}
                     href={href}
-                    target={href.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={label}
                     className='text-muted-foreground hover:text-foreground transition-colors'
                   >

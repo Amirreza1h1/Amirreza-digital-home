@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Linkedin } from 'lucide-react';
 import { profile } from '@/data/profile';
+import { socials } from '@/data/socials';
 import type { Collaborator } from '@/types/project';
 
 interface ProjectCollaboratorsProps {
@@ -70,11 +71,12 @@ function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: 
 }
 
 export function ProjectCollaborators({ role, collaborators }: ProjectCollaboratorsProps) {
+  const linkedIn = socials.find(social => social.name === 'LinkedIn')?.url;
   const owner: Collaborator = {
     name: profile.name,
-    specialty: profile.tagline,
+    specialty: profile.headline ?? '',
     role: role ?? 'Contributor',
-    linkedin: profile.linkedin,
+    linkedin: linkedIn,
     photo: profile.photo || undefined,
   };
   const people = [owner, ...collaborators];
