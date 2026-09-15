@@ -24,7 +24,7 @@ export interface Skill {
     | 'Network'
     | 'Code'
     | 'Palette';
-  context: string;
+  context?: string;
 }
 
 export interface SkillGroup {

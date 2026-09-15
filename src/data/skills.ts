@@ -28,6 +28,11 @@ export const skills: Skill[] = [
   { name: 'CSS', category: 'Frontend', icon: 'Palette', context: 'Coursework' },
   { name: 'Next.js', category: 'Frontend', iconSlug: 'nextjs', context: personalWebsite },
   { name: 'Django', category: 'Backend Frameworks', iconSlug: 'django', context: personalWebsite },
+  {
+    name: 'DRF (Django REST Framework)',
+    category: 'Backend Frameworks',
+    iconSlug: 'django-rest-framework',
+  },
   { name: 'SQLite', category: 'Databases', icon: 'Database', context: 'Coursework' },
   { name: 'PostgreSQL', category: 'Databases', iconSlug: 'postgresql', context: personalWebsite },
   { name: 'Docker', category: 'DevOps & Cloud', iconSlug: 'docker', context: personalWebsite },

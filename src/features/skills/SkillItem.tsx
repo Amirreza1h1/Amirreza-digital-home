@@ -76,7 +76,9 @@ export function SkillItem({ skill, index }: SkillItemProps) {
       <span className='text-muted-foreground group-hover:text-foreground text-center text-[11px] leading-tight font-semibold tracking-wide transition-colors duration-200'>
         {skill.name}
       </span>
-      <p className='text-muted-foreground text-center text-xs leading-relaxed'>{skill.context}</p>
+      {skill.context && (
+        <p className='text-muted-foreground text-center text-xs leading-relaxed'>{skill.context}</p>
+      )}
     </motion.div>
   );
 }
