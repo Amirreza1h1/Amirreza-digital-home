@@ -16,6 +16,7 @@
 - Run `git add` only when Amirreza explicitly asks for files to be staged.
 - By default, leave all modified files uncommitted and unstaged after completing work.
 - After making code changes, report which files were modified and leave the final commit/push decision to Amirreza.
+- After any task that creates, modifies, or deletes project files (including documentation), always include a suggested commit message in the final response, even if Amirreza does not ask for one. Describe only the changes made for that task. Suggesting a message never authorizes staging, committing, or pushing.
 - If Amirreza asks for a commit message, suggest the message only; do not execute the commit unless Amirreza explicitly and separately instructs you to do so.
 - If any existing instruction conflicts with this Git safety policy, this Git safety policy takes precedence.
 
