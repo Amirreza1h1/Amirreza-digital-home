@@ -14,16 +14,7 @@ export interface Skill {
   name: string;
   category: SkillCategory;
   iconSlug?: string;
-  icon?:
-    | 'Gamepad2'
-    | 'PanelsTopLeft'
-    | 'GitBranch'
-    | 'Database'
-    | 'Coffee'
-    | 'Package'
-    | 'Network'
-    | 'Code'
-    | 'Palette';
+  iconFile?: string;
   context?: string;
 }
 

@@ -2,17 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import {
-  Gamepad2,
-  PanelsTopLeft,
-  GitBranch,
-  Database,
-  Coffee,
-  Package,
-  Network,
-  Code,
-  Palette,
-} from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { iconTone } from '@/theme/icons';
 import type { Skill } from '@/types/skill';
@@ -23,8 +12,7 @@ interface SkillItemProps {
 }
 
 export function SkillItem({ skill, index }: SkillItemProps) {
-  const icons = { Gamepad2, PanelsTopLeft, GitBranch, Database, Coffee, Package, Network, Code, Palette };
-  const Icon = skill.icon ? icons[skill.icon] : Code;
+  const iconFile = skill.iconFile ?? (skill.iconSlug ? `${skill.iconSlug}.png` : undefined);
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 12 }}
@@ -55,9 +43,9 @@ export function SkillItem({ skill, index }: SkillItemProps) {
           iconTone(skill.name),
         )}
       >
-        {skill.iconSlug ? (
+        {iconFile ? (
           <Image
-            src={`/icons/skills/${skill.iconSlug}.png`}
+            src={`/icons/skills/${iconFile}`}
             alt={skill.name}
             width={52}
             height={52}
@@ -65,10 +53,9 @@ export function SkillItem({ skill, index }: SkillItemProps) {
             unoptimized
           />
         ) : (
-          <Icon
-            className='h-10 w-10 transition-transform duration-300 group-hover:scale-110'
-            aria-hidden='true'
-          />
+          <span className='text-xl font-bold' aria-hidden='true'>
+            {skill.name[0]}
+          </span>
         )}
       </div>
 
