@@ -5,6 +5,7 @@ export interface Profile {
   roles: string[];
   bio?: string;
   location?: string;
+  plannedLocation?: string;
   timeZone?: string;
   emails: string[];
   phones: string[];
@@ -19,12 +20,13 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Amirreza Hajizadeh',
-  initials: 'Amh',
+  initials: 'Amirreza1h1',
   headline: 'Constant resilience to improve',
-  roles: ['AI - Python', 'Vibe Coder - Web site', 'Software Engineer'],
+  roles: ['Software Engineer', 'M.Sc. Artificial Intelligence'],
   location: 'Mashhad, Iran',
+  plannedLocation: 'Toronto, Canada (in process)',
   timeZone: 'Asia/Tehran',
-  emails: ['amirreza.haji.0926264710@gmail.com', 'amirrezahajizadeh2002@gmail.com'],
+  emails: ['amirrezahajizadeh2002@gmail.com', 'amirreza.haji.0926264710@gmail.com'],
   phones: ['+98-930 634 1814', '+98-915 228 8744'],
   photo: '/profile.png',
 };

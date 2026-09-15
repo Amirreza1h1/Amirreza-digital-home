@@ -1,4 +1,6 @@
-import { Mail, Phone, Github, Linkedin, MapPin, Clock3, Send, Link2 } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, MapPin, Send, Link2, MessageCircle } from 'lucide-react';
+import { iconTone } from '@/theme/icons';
+import { cn } from '@/utils/cn';
 import type { LucideIcon } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ContentPlaceholder } from '@/components/shared/ContentPlaceholder';
@@ -13,13 +15,13 @@ interface ContactItem {
   description: string;
 }
 
-const socialIconMap: Record<string, LucideIcon> = { Github, Linkedin, Send };
+const socialIconMap: Record<string, LucideIcon> = { Github, Linkedin, Send, MessageCircle };
 
 export function ContactSection() {
   const contactItems: ContactItem[] = [
     ...profile.emails.map((email, index) => ({
       icon: Mail,
-      label: profile.emails.length > 1 ? `Email ${index + 1}` : 'Email',
+      label: index === 0 ? 'Email' : 'Alternate email',
       value: email,
       href: `mailto:${email}`,
       description: 'Public email address',
@@ -28,13 +30,16 @@ export function ContactSection() {
       icon: Phone,
       label: profile.phones.length > 1 ? `Phone ${index + 1}` : 'Phone',
       value: phone,
-      href: `tel:${phone}`,
+      href: `tel:${phone.replace(/[^+\d]/g, '')}`,
       description: 'Public phone number',
     })),
     ...socials.map(social => ({
       icon: socialIconMap[social.icon] ?? Link2,
       label: social.name,
-      value: social.url ?? social.username,
+      value:
+        social.name === 'Telegram' || social.name === 'WhatsApp'
+          ? social.username
+          : (social.url ?? social.username),
       href: social.url,
       description: social.url ? 'Public profile' : 'Public handle',
     })),
@@ -42,19 +47,19 @@ export function ContactSection() {
       ? [
           {
             icon: MapPin,
-            label: 'Location',
+            label: 'Current location',
             value: profile.location,
             description: 'Public location',
           },
         ]
       : []),
-    ...(profile.timeZone
+    ...(profile.plannedLocation
       ? [
           {
-            icon: Clock3,
-            label: 'Time Zone',
-            value: profile.timeZone,
-            description: 'Public time zone',
+            icon: MapPin,
+            label: 'Planned location',
+            value: profile.plannedLocation,
+            description: 'Relocation in process',
           },
         ]
       : []),
@@ -80,8 +85,13 @@ export function ContactSection() {
               <AnimatedSection key={`${item.label}-${item.value}`} delay={index * 0.06}>
                 <div className='border-border bg-card flex flex-col gap-2 rounded-xl border p-5'>
                   <div className='flex items-center gap-2'>
-                    <div className='bg-primary/10 flex h-8 w-8 items-center justify-center rounded-lg'>
-                      <item.icon className='text-primary h-4 w-4' />
+                    <div
+                      className={cn(
+                        'flex h-9 w-9 items-center justify-center rounded-lg ring-1',
+                        iconTone(item.label),
+                      )}
+                    >
+                      <item.icon className='h-5 w-5' aria-hidden='true' />
                     </div>
                     <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>
                       {item.label}

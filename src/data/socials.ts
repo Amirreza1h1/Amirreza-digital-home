@@ -20,7 +20,13 @@ export const socials: Social[] = [
   },
   {
     name: 'Telegram',
+    url: 'https://t.me/amirreza1h1',
     icon: 'Send',
+    username: '@amirreza1h1',
+  },
+  {
+    name: 'WhatsApp',
+    icon: 'MessageCircle',
     username: '@amirreza1h1',
   },
 ];

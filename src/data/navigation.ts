@@ -29,7 +29,6 @@ export const navItems: NavEntry[] = [
       { label: 'Education', href: '/education' },
     ],
   },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 

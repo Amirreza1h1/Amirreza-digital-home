@@ -5,7 +5,7 @@ import { skillGroups } from '@/data/skills';
 
 export const metadata = constructMetadata({
   title: 'Skills',
-  description: 'Technical skills, tools, and areas of expertise.',
+  description: 'Technologies used in professional work, personal projects, coursework, and ongoing learning.',
   path: '/skills',
 });
 
@@ -13,9 +13,9 @@ export default function SkillsPage() {
   return (
     <>
       <PageHero
-        label='Technical Expertise'
+        label='Tools & Technologies'
         title='Skills'
-        description='Technologies, tools, and competencies organized by category.'
+        description='Technologies organized by category, with the context in which I use and learn them.'
       />
       <div className='container mx-auto py-10 md:py-16'>
         <SkillsGrid groups={skillGroups} />
