@@ -10,10 +10,11 @@ import { Separator } from '@/components/ui/separator';
 import { constructMetadata } from '@/lib/seo';
 import { education, teachingRoles, certificates } from '@/data/education';
 import { Badge } from '@/components/ui/badge';
+import { Languages } from '@/features/education/Languages';
 
 export const metadata = constructMetadata({
   title: 'Education',
-  description: 'Degrees, coursework, teaching experience, and certificates.',
+  description: 'Degrees, coursework, certificates, language test history, and ongoing language learning.',
   path: '/education',
 });
 
@@ -25,7 +26,7 @@ export default function EducationPage() {
       <PageHero
         label='Academic Background'
         title='Education'
-        description='Degrees, selected coursework, teaching experience, and professional learning.'
+        description='Degrees, selected coursework, certificates, and language learning.'
       />
 
       <div className='container mx-auto flex flex-col gap-10 py-10 md:gap-16 md:py-16'>
@@ -62,6 +63,10 @@ export default function EducationPage() {
         </AnimatedSection>
 
         <Separator />
+
+        <AnimatedSection>
+          <Languages />
+        </AnimatedSection>
 
         {teachingRoles.length > 0 && (
           <AnimatedSection>
