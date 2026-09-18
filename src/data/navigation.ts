@@ -1,3 +1,5 @@
+import { isRouteVisible } from '@/config/visibility';
+
 export interface NavItem {
   label: string;
   href: string;
@@ -16,7 +18,7 @@ export function isNavGroup(entry: NavEntry): entry is NavGroup {
 }
 
 /** Header/primary navigation. Academic pages are grouped to keep the bar focused. */
-export const navItems: NavEntry[] = [
+const allNavItems: NavEntry[] = [
   { label: 'About', href: '/about' },
   { label: 'Experience', href: '/experience' },
   { label: 'Projects', href: '/projects' },
@@ -34,4 +36,10 @@ export const navItems: NavEntry[] = [
 ];
 
 /** Flattened, exhaustive list of every navigable page — used by the footer. */
+export const navItems: NavEntry[] = allNavItems.flatMap<NavEntry>(entry => {
+  if (!isNavGroup(entry)) return isRouteVisible(entry.href) ? [entry] : [];
+  const items = entry.items.filter(item => isRouteVisible(item.href));
+  return items.length > 0 ? [{ ...entry, items }] : [];
+});
+
 export const flatNavItems: NavItem[] = navItems.flatMap(entry => (isNavGroup(entry) ? entry.items : [entry]));

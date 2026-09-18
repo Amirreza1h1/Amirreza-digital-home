@@ -6,6 +6,7 @@ import { ContactCTA } from '@/features/home/ContactCTA';
 import { constructMetadata } from '@/lib/seo';
 import { heroStats } from '@/data/profile';
 import { researchAreas } from '@/data/research';
+import { isRouteVisible } from '@/config/visibility';
 
 export const metadata = constructMetadata();
 
@@ -15,7 +16,7 @@ export default function HomePage() {
       <Hero />
       {heroStats.length > 0 && <HeroStats />}
       <FeaturedProjects />
-      {researchAreas.length > 0 && <ResearchSnapshot />}
+      {isRouteVisible('/research') && researchAreas.length > 0 && <ResearchSnapshot />}
       <ContactCTA />
     </>
   );

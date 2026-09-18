@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 import { projects } from '@/data/projects';
+import { isRouteVisible } from '@/config/visibility';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -24,5 +25,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...projectRoutes];
+  return [...staticRoutes, ...projectRoutes].filter(route => isRouteVisible(new URL(route.url).pathname));
 }

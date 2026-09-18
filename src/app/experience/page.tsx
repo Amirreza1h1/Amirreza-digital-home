@@ -2,6 +2,8 @@ import { PageHero } from '@/components/shared/PageHero';
 import { ExperienceTimeline } from '@/features/experience/ExperienceTimeline';
 import { constructMetadata } from '@/lib/seo';
 import { experience } from '@/data/experience';
+import { notFound } from 'next/navigation';
+import { isRouteVisible } from '@/config/visibility';
 
 export const metadata = constructMetadata({
   title: 'Experience',
@@ -10,6 +12,7 @@ export const metadata = constructMetadata({
 });
 
 export default function ExperiencePage() {
+  if (!isRouteVisible('/experience')) notFound();
   return (
     <>
       <PageHero

@@ -7,6 +7,8 @@ import { Separator } from '@/components/ui/separator';
 import { constructMetadata } from '@/lib/seo';
 import { researchAreas, researchContext } from '@/data/research';
 import { profile } from '@/data/profile';
+import { notFound } from 'next/navigation';
+import { isRouteVisible } from '@/config/visibility';
 
 export const metadata = constructMetadata({
   title: 'Research',
@@ -15,6 +17,7 @@ export const metadata = constructMetadata({
 });
 
 export default function ResearchPage() {
+  if (!isRouteVisible('/research')) notFound();
   return (
     <>
       <PageHero

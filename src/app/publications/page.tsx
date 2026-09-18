@@ -2,6 +2,8 @@ import { PageHero } from '@/components/shared/PageHero';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { constructMetadata } from '@/lib/seo';
 import { publications } from '@/data/publications';
+import { notFound } from 'next/navigation';
+import { isRouteVisible } from '@/config/visibility';
 
 export const metadata = constructMetadata({
   title: 'Publications',
@@ -10,6 +12,7 @@ export const metadata = constructMetadata({
 });
 
 export default function PublicationsPage() {
+  if (!isRouteVisible('/publications')) notFound();
   return (
     <>
       <PageHero
