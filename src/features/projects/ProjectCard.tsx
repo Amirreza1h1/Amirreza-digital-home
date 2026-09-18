@@ -29,6 +29,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className='flex items-start justify-between gap-3'>
         <div className='flex flex-wrap gap-2'>
           <Badge variant={categoryVariant[project.category]}>{categoryLabel[project.category]}</Badge>
+          {project.links.download && <Badge variant='outline'>Downloadable</Badge>}
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
             {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
           </Badge>

@@ -21,7 +21,7 @@ export function SkillItem({ skill, index }: SkillItemProps) {
       transition={{ duration: 0.35, delay: index * 0.045, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ y: -6, transition: { duration: 0.2, ease: 'easeOut' } }}
       className={cn(
-        'group relative flex flex-col items-center justify-center gap-3',
+        'group relative flex h-full flex-col items-center justify-start gap-3',
         'border-border bg-surface/50 rounded-2xl border px-2 py-4 sm:px-3 sm:py-5',
         'cursor-default overflow-hidden',
         'transition-colors duration-300',
@@ -39,7 +39,7 @@ export function SkillItem({ skill, index }: SkillItemProps) {
       {/* Icon */}
       <div
         className={cn(
-          'relative flex h-18 w-18 items-center justify-center rounded-2xl shadow-sm ring-1',
+          'relative flex h-18 w-18 shrink-0 items-center justify-center rounded-2xl shadow-sm ring-1',
           iconTone(skill.name),
         )}
       >

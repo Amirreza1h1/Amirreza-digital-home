@@ -29,4 +29,4 @@ export const quickFacts: QuickFact[] = [
   { label: 'Career direction', value: 'Python / Applied AI development' },
   { label: 'Project goal', value: 'Privacy-first Local AI Companion' },
 ];
-export const coreStack: string[] = ['Python', 'Django', 'Next.js', 'PostgreSQL'];
+export const coreStack: string[] = ['Python', 'Django', 'Next.js', 'PostgreSQL', 'Docker'];

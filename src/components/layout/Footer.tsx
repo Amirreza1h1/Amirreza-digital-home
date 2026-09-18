@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Github, Linkedin, Mail, Send, Link2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { profile } from '@/data/profile';
@@ -76,7 +77,32 @@ export function Footer() {
           <p className='text-muted-foreground text-xs'>
             © {year} {profile.name}. All rights reserved.
           </p>
-          {profile.location && <p className='text-muted-foreground text-xs'>{profile.location}</p>}
+          <div className='text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 text-xs'>
+            {profile.location && (
+              <p className='flex items-center gap-2'>
+                <Image
+                  src='/Iran.png'
+                  alt=''
+                  width={24}
+                  height={16}
+                  className='h-4 w-6 shrink-0 object-contain'
+                />
+                {profile.location}
+              </p>
+            )}
+            {profile.plannedLocation && (
+              <p className='flex items-center gap-2'>
+                <Image
+                  src='/Canada.png'
+                  alt=''
+                  width={24}
+                  height={16}
+                  className='h-4 w-6 shrink-0 object-contain'
+                />
+                {profile.plannedLocation}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </footer>

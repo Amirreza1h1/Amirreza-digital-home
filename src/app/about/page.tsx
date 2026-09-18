@@ -3,6 +3,7 @@ import { ArrowRight, Download } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ContentPlaceholder } from '@/components/shared/ContentPlaceholder';
 import { ProfileImage } from '@/components/shared/ProfileImage';
+import { SimulationDownload } from '@/components/shared/SimulationDownload';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { TechBadge } from '@/components/shared/TechBadge';
 import { EducationCard } from '@/features/education/EducationCard';
@@ -138,7 +139,7 @@ export default function AboutPage() {
         <div className='flex flex-col gap-6'>
           <AnimatedSection delay={0.08}>
             <div className='border-border bg-card flex flex-col gap-4 rounded-xl border p-6'>
-              <h3 className='text-foreground font-semibold'>Resume</h3>
+              <h3 className='text-foreground font-semibold'>Downloads</h3>
               {hasResume ? (
                 <div className='flex flex-col gap-2'>
                   {profile.workResume && (
@@ -161,6 +162,7 @@ export default function AboutPage() {
               ) : (
                 <p className='text-muted-foreground text-sm'>Resume files have not been provided yet.</p>
               )}
+              <SimulationDownload />
             </div>
           </AnimatedSection>
 

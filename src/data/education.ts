@@ -34,8 +34,11 @@ export const education: Education[] = [
     // Verified against the supplied transcript, pages 1–3.
     coursework: [
       { title: 'Project', grade: '20 / 20' },
-      { title: 'Discrete Mathematics', grade: '16.73 / 20' },
-      { title: 'Algorithm Design', grade: '16.40 / 20' },
+      { title: 'Discrete Mathematics (B.Sc.)', grade: '16.73 / 20' },
+      { title: 'Differential Equations (B.Sc.)', grade: '19.00 / 20' },
+      { title: 'Network Security (B.Sc.)', grade: '16.00 / 20' },
+      { title: 'Algorithm Design (B.Sc.)', grade: '16.40 / 20' },
+      { title: 'Applied Linear Algebra (B.Sc.)', grade: '16.30 / 20' },
     ],
     labResults: [
       { title: 'Logic Circuits Lab', grade: '20 / 20' },

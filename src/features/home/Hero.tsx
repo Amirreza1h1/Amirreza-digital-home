@@ -4,13 +4,13 @@ import type { LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ProfileImage } from '@/components/shared/ProfileImage';
+import { SimulationDownload } from '@/components/shared/SimulationDownload';
 import { profile } from '@/data/profile';
 import { socials } from '@/data/socials';
 
 const socialIconMap: Record<string, LucideIcon> = { Github, Linkedin, Send };
 
 export function Hero() {
-  const hasResume = Boolean(profile.workResume || profile.academicResume);
   const linkedSocials = socials.filter(social => social.url);
   const hasContact = profile.emails.length > 0;
 
@@ -47,7 +47,7 @@ export function Hero() {
                 </Button>
               </div>
 
-              {hasResume && (
+              {
                 <div className='flex flex-wrap items-center gap-2'>
                   {profile.workResume && (
                     <a href={profile.workResume} download>
@@ -65,8 +65,9 @@ export function Hero() {
                       </Button>
                     </a>
                   )}
+                  <SimulationDownload />
                 </div>
-              )}
+              }
 
               {(linkedSocials.length > 0 || hasContact) && (
                 <div className='flex items-center gap-4 pt-2'>

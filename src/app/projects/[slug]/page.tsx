@@ -67,6 +67,7 @@ export default async function ProjectPage({ params }: Props) {
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
             {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
           </Badge>
+          {project.links.download && <Badge variant='outline'>Downloadable</Badge>}
         </div>
         <h1 className='text-foreground text-3xl font-bold tracking-tight md:text-4xl'>{project.title}</h1>
         <p className='text-muted-foreground max-w-2xl text-base leading-relaxed'>{project.overview}</p>
