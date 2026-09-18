@@ -19,20 +19,17 @@ export function SkillsGrid({ groups }: SkillsGridProps) {
       {groups.map((group, groupIndex) => (
         <motion.section
           key={group.category}
+          className='border-border border-t pt-6 lg:grid lg:grid-cols-[190px_1fr] lg:gap-8'
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45, delay: groupIndex * 0.07, ease: 'easeOut' }}
         >
           <div className='mb-5 flex items-center gap-3'>
-            <div className='bg-border hidden h-px flex-1 sm:block' />
-            <h3 className='text-primary font-mono text-[10px] font-semibold tracking-[0.12em] uppercase sm:tracking-[0.18em]'>
-              {group.category}
-            </h3>
-            <div className='bg-border h-px flex-1' />
+            <h3 className='field-label'>{group.category}</h3>
           </div>
 
-          <div className='grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'>
+          <div className='grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4'>
             {group.skills.map((skill, skillIndex) => (
               <SkillItem key={skill.name} skill={skill} index={skillIndex} />
             ))}

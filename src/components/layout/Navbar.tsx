@@ -9,8 +9,11 @@ import { Logo } from './Logo';
 
 export function Navbar() {
   return (
-    <header className='border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur-sm'>
-      <nav className='container mx-auto flex h-14 items-center justify-between' aria-label='Main navigation'>
+    <header className='sticky top-0 z-50 w-full px-3 pt-3 md:px-6'>
+      <nav
+        className='border-border bg-background/95 container mx-auto flex h-16 items-center justify-between rounded-2xl border shadow-sm backdrop-blur-xl'
+        aria-label='Main navigation'
+      >
         <Link href='/' className='transition-opacity hover:opacity-80' aria-label={`${profile.name} — home`}>
           <Logo className='h-7 md:h-8' priority />
         </Link>

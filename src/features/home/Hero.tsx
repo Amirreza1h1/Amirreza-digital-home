@@ -15,25 +15,27 @@ export function Hero() {
   const hasContact = profile.emails.length > 0;
 
   return (
-    <section className='border-border relative flex min-h-[88vh] items-center border-b'>
+    <section className='border-border relative flex min-h-[85vh] items-center border-b'>
       <div className='relative container mx-auto py-16 md:py-24'>
         <AnimatedSection>
           <div className='flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12 xl:gap-16'>
             <div className='flex min-w-0 flex-1 flex-col gap-6'>
+              <p className='field-label'>Amirreza’s digital home</p>
               {profile.roles.length > 0 && (
                 <div className='flex'>
-                  <span className='border-primary/20 bg-primary/5 text-primary inline-flex max-w-full items-center gap-2 rounded-2xl border px-3 py-1 font-mono text-xs'>
-                    <span className='bg-primary mt-1 h-1.5 w-1.5 shrink-0 animate-pulse self-start rounded-full sm:mt-0 sm:self-center' />
+                  <span className='text-muted-foreground inline-flex max-w-full items-center gap-2 font-mono text-xs'>
                     <span className='min-w-0'>{profile.roles.join(' • ')}</span>
                   </span>
                 </div>
               )}
 
-              <h1 className='text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
+              <h1 className='editorial-title text-foreground max-w-2xl text-6xl sm:text-7xl lg:text-8xl'>
                 {profile.name}
               </h1>
               {profile.headline && (
-                <p className='text-primary font-mono text-sm md:text-base lg:text-lg'>{profile.headline}</p>
+                <p className='text-muted-foreground max-w-lg text-lg leading-relaxed md:text-xl'>
+                  {profile.headline}
+                </p>
               )}
 
               <div className='flex flex-wrap items-center gap-3 pt-2'>
@@ -50,20 +52,20 @@ export function Hero() {
               {
                 <div className='flex flex-wrap items-center gap-2'>
                   {profile.workResume && (
-                    <a href={profile.workResume} download>
-                      <Button variant='outline' size='sm'>
+                    <Button asChild variant='outline' size='sm'>
+                      <a href={profile.workResume} download>
                         <Download className='h-3.5 w-3.5' />
                         Work CV
-                      </Button>
-                    </a>
+                      </a>
+                    </Button>
                   )}
                   {profile.academicResume && (
-                    <a href={profile.academicResume} download>
-                      <Button variant='outline' size='sm'>
+                    <Button asChild variant='outline' size='sm'>
+                      <a href={profile.academicResume} download>
                         <Download className='h-3.5 w-3.5' />
                         Academic CV
-                      </Button>
-                    </a>
+                      </a>
+                    </Button>
                   )}
                   <SimulationDownload />
                 </div>
@@ -80,7 +82,7 @@ export function Hero() {
                         target='_blank'
                         rel='noopener noreferrer'
                         aria-label={social.name}
-                        className='text-muted-foreground hover:text-foreground transition-colors'
+                        className='border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full border p-3 transition-colors'
                       >
                         <Icon className='h-5 w-5' />
                       </a>
@@ -90,7 +92,7 @@ export function Hero() {
                     <Link
                       href='/contact'
                       aria-label='Contact'
-                      className='text-muted-foreground hover:text-foreground transition-colors'
+                      className='border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded-full border p-3 transition-colors'
                     >
                       <Mail className='h-5 w-5' />
                     </Link>
@@ -100,10 +102,14 @@ export function Hero() {
             </div>
 
             <div className='flex shrink-0 justify-center lg:justify-end'>
-              <div className='relative w-80 max-w-full md:w-88'>
-                <div className='bg-primary/20 absolute -inset-1 rounded-2xl blur-xl' />
-                <div className='border-border bg-surface relative h-100 overflow-hidden rounded-2xl border md:h-110'>
+              <div className='relative mx-6 my-8 w-72 max-w-full md:w-88'>
+                <div className='portrait-orbit' aria-hidden='true' />
+                <div className='portrait-frame relative h-96 md:h-110'>
                   <ProfileImage priority sizes='(min-width: 768px) 352px, 320px' />
+                </div>
+                <div className='border-border bg-card relative -mt-4 ml-6 rounded-xl border p-4 shadow-sm'>
+                  <p className='text-primary font-mono text-xs'>{profile.initials}</p>
+                  <p className='text-muted-foreground mt-1 text-sm'>{profile.location}</p>
                 </div>
               </div>
             </div>

@@ -15,6 +15,9 @@ export function Logo({ className }: LogoProps) {
         className,
       )}
     >
+      <span aria-hidden='true' className='text-primary mr-2 text-xl'>
+        ✳
+      </span>
       {profile.initials || profile.name}
     </span>
   );

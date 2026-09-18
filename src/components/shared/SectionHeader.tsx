@@ -11,10 +11,8 @@ interface SectionHeaderProps {
 export function SectionHeader({ label, title, description, className, align = 'left' }: SectionHeaderProps) {
   return (
     <div className={cn('flex flex-col gap-2', align === 'center' && 'items-center text-center', className)}>
-      {label && (
-        <span className='text-primary font-mono text-xs font-medium tracking-widest uppercase'>{label}</span>
-      )}
-      <h2 className='text-foreground text-2xl font-bold tracking-tight md:text-3xl'>{title}</h2>
+      {label && <span className='field-label'>{label}</span>}
+      <h2 className='editorial-title text-foreground text-3xl md:text-5xl'>{title}</h2>
       {description && (
         <p className='text-muted-foreground max-w-2xl text-base leading-relaxed'>{description}</p>
       )}

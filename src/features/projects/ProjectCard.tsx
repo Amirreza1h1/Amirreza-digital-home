@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { TechBadge } from '@/components/shared/TechBadge';
@@ -24,8 +25,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className='group border-border bg-card hover:border-primary/30 flex h-full flex-col rounded-xl border p-6 transition-all hover:shadow-md'
+      className='project-sheet group border-border bg-card flex h-full flex-col overflow-hidden rounded-2xl border p-6'
     >
+      {project.demo && (
+        <div className='bg-surface mb-6 overflow-hidden rounded-xl p-3'>
+          <Image
+            src={project.demo.image}
+            alt={`${project.title} — example results`}
+            width={1119}
+            height={626}
+            sizes='(min-width: 768px) 550px, 100vw'
+            className='h-auto w-full rounded-lg'
+          />
+        </div>
+      )}
       <div className='flex items-start justify-between gap-3'>
         <div className='flex flex-wrap gap-2'>
           <Badge variant={categoryVariant[project.category]}>{categoryLabel[project.category]}</Badge>
@@ -38,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className='mt-4 flex flex-1 flex-col gap-2'>
-        <h3 className='text-foreground group-hover:text-primary font-semibold transition-colors'>
+        <h3 className='editorial-title text-foreground group-hover:text-primary text-3xl transition-colors'>
           {project.title}
         </h3>
         <p className='text-muted-foreground line-clamp-3 text-sm leading-relaxed'>{project.overview}</p>

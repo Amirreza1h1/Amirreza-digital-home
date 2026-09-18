@@ -29,12 +29,13 @@ export function FeaturedProjects() {
         {featuredProjects.length === 0 ? (
           <PlannedCompanion />
         ) : (
-          <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid gap-6 md:grid-cols-2'>
             {featuredProjects.map((project, index) => (
               <AnimatedSection key={project.slug} delay={index * 0.08}>
                 <ProjectCard project={project} />
               </AnimatedSection>
             ))}
+            <PlannedCompanion />
           </div>
         )}
       </div>
