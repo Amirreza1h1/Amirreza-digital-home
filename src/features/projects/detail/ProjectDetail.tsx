@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { TechBadge } from '@/components/shared/TechBadge';
 import { Separator } from '@/components/ui/separator';
@@ -30,8 +31,15 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <TechBadge key={tech} name={tech} />
             ))}
           </div>
-          {(project.links.live || project.links.github) && (
+          {(project.links.live || project.links.github || project.links.download) && (
             <div className='mt-6 flex flex-wrap gap-3'>
+              {project.links.download && (
+                <Button asChild size='sm'>
+                  <a href={project.links.download} download>
+                    {project.demo?.downloadLabel ?? 'Download application'}
+                  </a>
+                </Button>
+              )}
               {project.links.live && (
                 <Button asChild size='sm'>
                   <a href={project.links.live} target='_blank' rel='noopener noreferrer'>
@@ -54,6 +62,37 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       </AnimatedSection>
 
       <Separator />
+
+      {project.demo && (
+        <AnimatedSection>
+          <Section title='Try the Simulation'>
+            <p className='text-muted-foreground text-sm'>{project.demo.note}</p>
+            <ol className='text-muted-foreground list-decimal space-y-2 pl-5 text-sm'>
+              {project.demo.instructions.map(step => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <figure>
+              <a
+                href={project.demo.image}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Open full-size simulation results'
+              >
+                <Image
+                  src={project.demo.image}
+                  alt='Bot Society simulation result charts'
+                  width={1119}
+                  height={626}
+                  sizes='(min-width: 1200px) 1136px, 100vw'
+                  className='border-border h-auto w-full rounded-xl border'
+                />
+              </a>
+              <figcaption className='text-muted-foreground mt-3 text-sm'>{project.demo.caption}</figcaption>
+            </figure>
+          </Section>
+        </AnimatedSection>
+      )}
 
       {/* Problem & Solution */}
       <div className='grid gap-10 md:grid-cols-2'>
@@ -81,19 +120,20 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <Separator />
 
       {/* Challenges */}
-      <AnimatedSection>
-        <Section title='Challenges'>
-          <ul className='flex flex-col gap-3'>
-            {project.challenges.map((c, i) => (
-              <li key={i} className='flex items-start gap-3'>
-                <AlertCircle className='mt-0.5 h-4 w-4 shrink-0 text-amber-500' />
-                <p className='text-muted-foreground text-sm leading-relaxed'>{c}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      </AnimatedSection>
-
+      {project.challenges.length > 0 && (
+        <AnimatedSection>
+          <Section title='Challenges'>
+            <ul className='flex flex-col gap-3'>
+              {project.challenges.map((c, i) => (
+                <li key={i} className='flex items-start gap-3'>
+                  <AlertCircle className='mt-0.5 h-4 w-4 shrink-0 text-amber-500' />
+                  <p className='text-muted-foreground text-sm leading-relaxed'>{c}</p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </AnimatedSection>
+      )}
       {/* Outcomes */}
       <AnimatedSection>
         <Section title='Outcomes'>
@@ -109,28 +149,29 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       </AnimatedSection>
 
       {/* Lessons Learned */}
-      <AnimatedSection>
-        <Section title='Lessons Learned'>
-          <ul className='flex flex-col gap-3'>
-            {project.lessonsLearned.map((l, i) => (
-              <li key={i} className='flex items-start gap-3'>
-                <Lightbulb className='text-primary mt-0.5 h-4 w-4 shrink-0' />
-                <p className='text-muted-foreground text-sm leading-relaxed'>{l}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      </AnimatedSection>
-
-      <Separator />
+      {project.lessonsLearned.length > 0 && (
+        <AnimatedSection>
+          <Section title='Lessons Learned'>
+            <ul className='flex flex-col gap-3'>
+              {project.lessonsLearned.map((l, i) => (
+                <li key={i} className='flex items-start gap-3'>
+                  <Lightbulb className='text-primary mt-0.5 h-4 w-4 shrink-0' />
+                  <p className='text-muted-foreground text-sm leading-relaxed'>{l}</p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </AnimatedSection>
+      )}
 
       {/* Team */}
-      <AnimatedSection>
-        <Section title='Team'>
-          <ProjectCollaborators role={project.role} collaborators={project.collaborators} />
-        </Section>
-      </AnimatedSection>
-
+      {(project.role || project.collaborators.length > 0) && (
+        <AnimatedSection>
+          <Section title='Team'>
+            <ProjectCollaborators role={project.role} collaborators={project.collaborators} />
+          </Section>
+        </AnimatedSection>
+      )}
       <Separator />
 
       {/* Meta */}
@@ -161,10 +202,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <span>Team of {project.teamSize}</span>
             </div>
           )}
-          <div className='flex items-center gap-1.5'>
-            <CalendarDays className='h-4 w-4' />
-            <span>{formatDateRange(project.startDate, project.endDate)}</span>
-          </div>
+          {project.startDate && (
+            <div className='flex items-center gap-1.5'>
+              <CalendarDays className='h-4 w-4' />
+              <span>{formatDateRange(project.startDate, project.endDate)}</span>
+            </div>
+          )}
         </div>
       </AnimatedSection>
     </div>

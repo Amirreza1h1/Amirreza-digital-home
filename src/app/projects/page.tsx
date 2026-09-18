@@ -19,12 +19,12 @@ export default function ProjectsPage() {
         description='Selected projects, prototypes, and case studies.'
       />
       <div className='container mx-auto py-10 md:py-16'>
-        <PlannedCompanion />
         {projects.length > 0 && (
-          <div className='mt-10'>
+          <div className='mb-10'>
             <ProjectGrid projects={projects} />
           </div>
         )}
+        <PlannedCompanion />
       </div>
     </>
   );

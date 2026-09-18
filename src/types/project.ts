@@ -33,10 +33,12 @@ export interface Project {
   role: string | null;
   /** Teammates on this project. The owner is prepended automatically — do not list them here. */
   collaborators: Collaborator[];
-  startDate: string;
+  startDate?: string;
   endDate: string | null;
   links: {
     github?: string;
     live?: string;
+    download?: string;
   };
+  demo?: { image: string; caption: string; instructions: string[]; downloadLabel: string; note: string };
 }
