@@ -2,6 +2,7 @@ import { PageHero } from '@/components/shared/PageHero';
 import { SkillsGrid } from '@/features/skills/SkillsGrid';
 import { constructMetadata } from '@/lib/seo';
 import { skillGroups } from '@/data/skills';
+import { LearningPlan } from '@/features/skills/LearningPlan';
 
 export const metadata = constructMetadata({
   title: 'Skills',
@@ -19,6 +20,7 @@ export default function SkillsPage() {
       />
       <div className='container mx-auto py-10 md:py-16'>
         <SkillsGrid groups={skillGroups} />
+        <LearningPlan />
       </div>
     </>
   );

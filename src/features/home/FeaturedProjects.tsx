@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ContentPlaceholder } from '@/components/shared/ContentPlaceholder';
+import { PlannedCompanion } from '@/features/projects/PlannedCompanion';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ProjectCard } from '@/features/projects/ProjectCard';
@@ -16,7 +16,7 @@ export function FeaturedProjects() {
             <SectionHeader
               label='Selected Work'
               title='Featured Projects'
-              description='Selected projects and case studies will appear here.'
+              description='My Applied AI project direction and selected work.'
             />
             <Button variant='outline' asChild>
               <Link href='/projects'>
@@ -27,7 +27,7 @@ export function FeaturedProjects() {
         </AnimatedSection>
 
         {featuredProjects.length === 0 ? (
-          <ContentPlaceholder description='Featured projects have not been provided yet.' />
+          <PlannedCompanion />
         ) : (
           <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
             {featuredProjects.map((project, index) => (

@@ -27,6 +27,7 @@ export const navItems: NavEntry[] = [
       { label: 'Research', href: '/research' },
       { label: 'Publications', href: '/publications' },
       { label: 'Education', href: '/education' },
+      { label: 'Certificates', href: '/education#certificates' },
     ],
   },
   { label: 'Contact', href: '/contact' },

@@ -2,6 +2,7 @@ import { PageHero } from '@/components/shared/PageHero';
 import { ProjectGrid } from '@/features/projects/ProjectGrid';
 import { constructMetadata } from '@/lib/seo';
 import { projects } from '@/data/projects';
+import { PlannedCompanion } from '@/features/projects/PlannedCompanion';
 
 export const metadata = constructMetadata({
   title: 'Projects',
@@ -18,7 +19,12 @@ export default function ProjectsPage() {
         description='Selected projects, prototypes, and case studies.'
       />
       <div className='container mx-auto py-10 md:py-16'>
-        <ProjectGrid projects={projects} />
+        <PlannedCompanion />
+        {projects.length > 0 && (
+          <div className='mt-10'>
+            <ProjectGrid projects={projects} />
+          </div>
+        )}
       </div>
     </>
   );

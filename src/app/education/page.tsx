@@ -75,7 +75,12 @@ export default function EducationPage() {
         <Separator />
 
         <AnimatedSection>
-          <SectionHeader title='Certificates' />
+          <div id='certificates' className='scroll-mt-24'>
+            <SectionHeader
+              title='Certificates & Learning Goals'
+              description='Earned credentials and planned training are labeled separately.'
+            />
+          </div>
           {certificates.length === 0 ? (
             <ContentPlaceholder className='mt-6' description='Certificates have not been provided yet.' />
           ) : (
@@ -88,7 +93,11 @@ export default function EducationPage() {
                   <div className='flex items-start justify-between gap-2'>
                     <h4 className='text-foreground font-medium'>{cert.title}</h4>
                     <Badge variant={cert.status === 'completed' ? 'completed' : 'ongoing'}>
-                      {cert.status === 'completed' ? 'Completed' : 'In Progress'}
+                      {cert.status === 'completed'
+                        ? 'Completed'
+                        : cert.status === 'planned'
+                          ? 'Planned · Not earned'
+                          : 'In Progress'}
                     </Badge>
                   </div>
                   <p className='text-muted-foreground text-sm'>

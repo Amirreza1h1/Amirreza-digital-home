@@ -88,7 +88,7 @@ export default function AboutPage() {
           )}
 
           <AnimatedSection delay={0.06}>
-            <SectionHeader title='What I Build' />
+            <SectionHeader title='Experience & Direction' />
             {workAreas.length === 0 ? (
               <ContentPlaceholder
                 className='mt-6'
@@ -186,7 +186,7 @@ export default function AboutPage() {
 
           <AnimatedSection delay={0.14}>
             <div className='border-border bg-card flex flex-col gap-4 rounded-xl border p-6'>
-              <h3 className='text-foreground font-semibold'>Core Stack</h3>
+              <h3 className='text-foreground font-semibold'>Technologies Used</h3>
               {coreStack.length === 0 ? (
                 <p className='text-muted-foreground text-sm'>Core technologies have not been provided yet.</p>
               ) : (

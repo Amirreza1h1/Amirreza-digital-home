@@ -4,6 +4,8 @@ import { FeaturedProjects } from '@/features/home/FeaturedProjects';
 import { ResearchSnapshot } from '@/features/home/ResearchSnapshot';
 import { ContactCTA } from '@/features/home/ContactCTA';
 import { constructMetadata } from '@/lib/seo';
+import { heroStats } from '@/data/profile';
+import { researchAreas } from '@/data/research';
 
 export const metadata = constructMetadata();
 
@@ -11,9 +13,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <HeroStats />
+      {heroStats.length > 0 && <HeroStats />}
       <FeaturedProjects />
-      <ResearchSnapshot />
+      {researchAreas.length > 0 && <ResearchSnapshot />}
       <ContactCTA />
     </>
   );
