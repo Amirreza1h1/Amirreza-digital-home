@@ -7,6 +7,7 @@ import { ProfileImage } from '@/components/shared/ProfileImage';
 import { SimulationDownload } from '@/components/shared/SimulationDownload';
 import { profile } from '@/data/profile';
 import { socials } from '@/data/socials';
+import { FlowArtwork } from '@/components/shared/FlowArtwork';
 
 const socialIconMap: Record<string, LucideIcon> = { Github, Linkedin, Send };
 
@@ -15,12 +16,15 @@ export function Hero() {
   const hasContact = profile.emails.length > 0;
 
   return (
-    <section className='border-border relative flex min-h-[85vh] items-center border-b'>
-      <div className='relative container mx-auto py-16 md:py-24'>
+    <section className='friendly-hero border-border relative isolate flex min-h-[85vh] items-center overflow-hidden border-b'>
+      <FlowArtwork />
+      <div className='relative container mx-auto min-w-0 py-16 md:py-24'>
         <AnimatedSection>
           <div className='flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12 xl:gap-16'>
             <div className='flex min-w-0 flex-1 flex-col gap-6'>
-              <p className='field-label'>Amirreza’s digital home</p>
+              <p className='welcome-note'>
+                <span aria-hidden='true'>✳</span> Hello, welcome to my little corner of the web.
+              </p>
               {profile.roles.length > 0 && (
                 <div className='flex'>
                   <span className='text-muted-foreground inline-flex max-w-full items-center gap-2 font-mono text-xs'>
@@ -102,12 +106,15 @@ export function Hero() {
             </div>
 
             <div className='flex shrink-0 justify-center lg:justify-end'>
-              <div className='relative mx-6 my-8 w-72 max-w-full md:w-88'>
+              <div className='portrait-scene relative mx-4 my-8 w-72 max-w-full md:w-88'>
                 <div className='portrait-orbit' aria-hidden='true' />
+                <span className='portrait-spark' aria-hidden='true'>
+                  ✳
+                </span>
                 <div className='portrait-frame relative h-96 md:h-110'>
                   <ProfileImage priority sizes='(min-width: 768px) 352px, 320px' />
                 </div>
-                <div className='border-border bg-card relative -mt-4 ml-6 rounded-xl border p-4 shadow-sm'>
+                <div className='portrait-caption border-border bg-card relative -mt-4 ml-6 rounded-2xl border p-4 shadow-sm'>
                   <p className='text-primary font-mono text-xs'>{profile.initials}</p>
                   <p className='text-muted-foreground mt-1 text-sm'>{profile.location}</p>
                 </div>

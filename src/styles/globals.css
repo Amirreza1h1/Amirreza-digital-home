@@ -229,10 +229,10 @@ body {
   isolation: isolate;
 }
 .editorial-title {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 1.04;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
 }
 .field-label {
   display: inline-flex;
@@ -275,7 +275,7 @@ body {
   background: var(--primary);
 }
 .portrait-frame {
-  border-radius: 48% 48% 1.5rem 1.5rem;
+  border-radius: 40% 48% 38% 22% / 30% 30% 24% 32%;
   border: 1px solid var(--border);
   background: var(--surface);
   overflow: hidden;
@@ -294,6 +294,132 @@ body {
 @keyframes orbit {
   to {
     transform: rotate(360deg);
+  }
+}
+.friendly-background {
+  background:
+    radial-gradient(ellipse at 90% 10%, color-mix(in srgb, var(--primary) 9%, transparent), transparent 55%),
+    radial-gradient(ellipse at 5% 65%, color-mix(in srgb, var(--flow-warm) 7%, transparent), transparent 45%);
+}
+:root {
+  --flow-warm: #b65335;
+  --flow-cool: #5379a0;
+}
+.dark {
+  --flow-warm: #f0ae88;
+  --flow-cool: #8fbddd;
+}
+.welcome-note {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+}
+.welcome-note span {
+  font-size: 1.6rem;
+}
+.flow-artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+.flow-lines {
+  stroke: var(--primary);
+  stroke-width: 1;
+  opacity: 0.18;
+}
+.flow-lines path:last-child {
+  stroke: var(--flow-warm);
+}
+.flow-sparks {
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1 24;
+  opacity: 0.4;
+  animation: flow-travel 24s linear infinite;
+}
+.flow-sparks path:last-child {
+  stroke: var(--flow-warm);
+}
+.flow-cluster {
+  stroke: var(--primary);
+  stroke-width: 1;
+  opacity: 0.22;
+  transform-origin: 925px 260px;
+  animation: gentle-drift 14s ease-in-out infinite alternate;
+}
+.flow-halo {
+  fill: color-mix(in srgb, var(--primary) 7%, transparent);
+}
+.flow-node {
+  fill: var(--flow-warm);
+  stroke: none;
+}
+.flow-tile {
+  stroke: var(--flow-cool);
+  stroke-width: 2;
+  opacity: 0.35;
+  animation: gentle-drift 10s ease-in-out infinite alternate;
+}
+.flow-tile rect {
+  fill: var(--card);
+}
+.flow-tile-late {
+  animation-delay: -5s;
+  stroke: var(--flow-warm);
+}
+.portrait-spark {
+  position: absolute;
+  right: -0.5rem;
+  top: -1.5rem;
+  z-index: 1;
+  font-size: 4rem;
+  color: var(--flow-warm);
+  animation: friendly-turn 12s ease-in-out infinite alternate;
+}
+.portrait-caption {
+  transform: rotate(-3deg);
+}
+.portrait-orbit {
+  border-style: solid;
+  border-radius: 44% 56% 60% 40%;
+  opacity: 0.25;
+}
+@keyframes flow-travel {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes gentle-drift {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+@keyframes friendly-turn {
+  from {
+    transform: rotate(-15deg);
+  }
+  to {
+    transform: rotate(25deg);
+  }
+}
+@media (max-width: 767px) {
+  .flow-artwork {
+    width: 180%;
+    left: -55%;
+    opacity: 0.55;
+  }
+  .friendly-hero h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    overflow-wrap: anywhere;
   }
 }
 @media (prefers-reduced-motion: reduce) {

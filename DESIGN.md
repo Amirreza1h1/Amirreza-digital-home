@@ -1,7 +1,8 @@
-# Digital field notes
+# A friendly digital home
 
-The portfolio uses warm paper and forest green in light mode, deep green and mint in dark mode. Serif headings
-contrast with the existing Geist body text and monospace labels. All content remains in `src/data/`; the
+The portfolio uses warm paper and forest green in light mode, deep green and mint in dark mode. Soft sans-serif headings,
+organic portrait framing, and gently flowing SVG paths make the space welcoming. Warm peach and blue accents
+highlight decorative floating panels and connected shapes. All content remains in `src/data/`; the
 design adds no services or invented achievements.
 
 ## Where to customize
@@ -11,8 +12,9 @@ design adds no services or invented achievements.
   `--background`, `--card`, `--surface`, `--border`, and `--muted-foreground` control the surfaces and
   supporting text.
 - **Heading style and decorative effects:** the “Digital field notes” section at the bottom of that
-  stylesheet. `.editorial-title` controls serif headings; `.portrait-orbit` controls the slow decorative
-  rotation.
+  stylesheet. `.editorial-title` controls headings; `.portrait-orbit` controls the slow decorative
+  rotation. `--flow-warm` and `--flow-cool` control secondary accents. The `.flow-*` rules control flowing
+  paths and floating shapes; their SVG geometry lives in `src/components/shared/FlowArtwork.tsx`.
 - **Home composition:** `src/features/home/Hero.tsx`, `FeaturedProjects.tsx`, and `ContactCTA.tsx`.
 - **Inner-page headings:** `src/components/shared/PageHero.tsx` and `SectionHeader.tsx`.
 - **Navigation and branding:** `src/components/layout/Navbar.tsx` and `Logo.tsx`.
