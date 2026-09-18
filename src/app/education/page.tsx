@@ -1,4 +1,5 @@
 import { PageHero } from '@/components/shared/PageHero';
+import Image from 'next/image';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ContentPlaceholder } from '@/components/shared/ContentPlaceholder';
 import { SectionHeader } from '@/components/shared/SectionHeader';
@@ -49,7 +50,7 @@ export default function EducationPage() {
         <AnimatedSection>
           <SectionHeader
             title='Relevant Coursework'
-            description='Selected courses and grades can be listed here.'
+            description='Selected bachelor’s courses from Quchan University of Technology, verified against the academic transcript. Grades are out of 20.'
           />
           {coursework.length === 0 ? (
             <ContentPlaceholder className='mt-6' description='Coursework has not been provided yet.' />
@@ -62,17 +63,17 @@ export default function EducationPage() {
 
         <Separator />
 
-        <AnimatedSection>
-          <SectionHeader
-            title='Teaching Experience'
-            description='Teaching assistant, instructor, and mentoring roles can be listed here.'
-          />
-          <div className='mt-6'>
-            <TeachingRoles roles={teachingRoles} />
-          </div>
-        </AnimatedSection>
-
-        <Separator />
+        {teachingRoles.length > 0 && (
+          <AnimatedSection>
+            <SectionHeader
+              title='Teaching Experience'
+              description='Teaching assistant, instructor, and mentoring roles can be listed here.'
+            />
+            <div className='mt-6'>
+              <TeachingRoles roles={teachingRoles} />
+            </div>
+          </AnimatedSection>
+        )}
 
         <AnimatedSection>
           <div id='certificates' className='scroll-mt-24'>
@@ -101,9 +102,35 @@ export default function EducationPage() {
                     </Badge>
                   </div>
                   <p className='text-muted-foreground text-sm'>
-                    {cert.issuer} • {cert.duration}
+                    {cert.issuer}
+                    {cert.issuedDate
+                      ? ` • Issued ${cert.issuedDate}`
+                      : cert.duration
+                        ? ` • ${cert.duration}`
+                        : ''}
                   </p>
                   <p className='text-muted-foreground text-xs leading-relaxed'>{cert.description}</p>
+                  {cert.image && (
+                    <a
+                      href={cert.image}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='mt-3 block rounded-lg'
+                      aria-label={`View ${cert.title} certificate (opens in a new tab)`}
+                    >
+                      <Image
+                        src={cert.image}
+                        alt={`${cert.title} certificate issued by ${cert.issuer} to Amirreza Hajizadeh`}
+                        width={1754}
+                        height={1238}
+                        sizes='(min-width: 768px) 50vw, 100vw'
+                        className='border-border h-auto w-full rounded-lg border'
+                      />
+                      <span className='text-primary mt-2 inline-block text-sm underline'>
+                        View certificate
+                      </span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

@@ -22,4 +22,6 @@ export interface Education {
   endDate: string | null;
   status: EducationStatus;
   coursework: Coursework[];
+  labResults?: Coursework[];
+  project?: { title: string; url: string };
 }

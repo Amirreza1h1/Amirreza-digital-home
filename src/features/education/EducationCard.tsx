@@ -34,6 +34,36 @@ export function EducationCard({ education }: EducationCardProps) {
           </span>
         </div>
       )}
+      {education.project && (
+        <div className='border-border border-t pt-4'>
+          <h4 className='font-semibold'>Bachelor’s Project</h4>
+          <a
+            href={education.project.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-primary mt-2 inline-block text-sm underline underline-offset-4'
+          >
+            {education.project.title} — View on GitHub
+          </a>
+        </div>
+      )}
+      {education.labResults && education.labResults.length > 0 && (
+        <section className='border-border border-t pt-4' aria-label='Laboratory performance'>
+          <h4 className='font-semibold'>Laboratory Strengths</h4>
+          <p className='text-muted-foreground mt-2 text-sm'>
+            Strong practical coursework results in digital logic, electronic circuits, microprocessors, and
+            computer architecture.
+          </p>
+          <dl className='mt-3 space-y-2 text-sm'>
+            {education.labResults.map(lab => (
+              <div key={lab.title} className='flex flex-wrap justify-between gap-2'>
+                <dt className='text-muted-foreground'>{lab.title}</dt>
+                <dd className='font-mono font-semibold'>{lab.grade}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
     </div>
   );
 }
