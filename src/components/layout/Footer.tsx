@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Send, Link2 } from 'lucide-react';
@@ -18,7 +19,7 @@ const socialLinks = [
       label: social.name,
       icon: socialIconMap[social.icon] ?? Link2,
     })),
-  ...(profile.emails.length > 0 ? [{ href: '/contact', label: 'Contact', icon: Mail }] : []),
+  ...(profile.emails.length > 0 ? [{ href: assetPath('/contact/'), label: 'Contact', icon: Mail }] : []),
 ];
 
 export function Footer() {
@@ -81,7 +82,7 @@ export function Footer() {
             {profile.location && (
               <p className='flex items-center gap-2'>
                 <Image
-                  src='/Iran.png'
+                  src={assetPath('/Iran.png')}
                   alt=''
                   width={24}
                   height={16}
@@ -93,7 +94,7 @@ export function Footer() {
             {profile.plannedLocation && (
               <p className='flex items-center gap-2'>
                 <Image
-                  src='/Canada.png'
+                  src={assetPath('/Canada.png')}
                   alt=''
                   width={24}
                   height={16}

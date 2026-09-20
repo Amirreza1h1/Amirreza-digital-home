@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
 
@@ -11,7 +12,7 @@ interface SkillIconProps {
 export function SkillIcon({ slug, name, size = 18, className }: SkillIconProps) {
   return (
     <Image
-      src={`/icons/skills/${slug}.png`}
+      src={assetPath(`/icons/skills/${slug}.png`)}
       alt={name}
       width={size}
       height={size}

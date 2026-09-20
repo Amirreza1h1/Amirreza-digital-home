@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import profilePicture from '../../public/profile.png';
 
 export interface Profile {
@@ -31,7 +32,7 @@ export const profile: Profile = {
   timeZone: 'Asia/Tehran',
   emails: ['amirrezahajizadeh2002@gmail.com', 'amirreza.haji.0926264710@gmail.com'],
   phones: ['+98-930 634 1814', '+98-915 228 8744'],
-  academicResume: '/Academic_CV.pdf',
+  academicResume: assetPath('/Academic_CV.pdf'),
   // Static imports produce a new asset URL whenever the image contents change.
   photo: profilePicture.src,
 };

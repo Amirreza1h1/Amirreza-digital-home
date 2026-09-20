@@ -1,5 +1,6 @@
 'use client';
 
+import { assetPath } from '@/lib/asset-path';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
@@ -45,7 +46,7 @@ export function SkillItem({ skill, index }: SkillItemProps) {
       >
         {iconFile ? (
           <Image
-            src={`/icons/skills/${iconFile}`}
+            src={assetPath(`/icons/skills/${iconFile}`)}
             alt={skill.name}
             width={52}
             height={52}

@@ -6,6 +6,13 @@ export function FlowArtwork() {
   return (
     <svg className='flow-artwork' viewBox='0 0 1200 760' fill='none' aria-hidden='true' focusable='false'>
       <defs>
+        <linearGradient id={id + '-quiet-left'} x1='0' x2='1200' gradientUnits='userSpaceOnUse'>
+          <stop offset='0.42' stopColor='white' stopOpacity='0' />
+          <stop offset='0.57' stopColor='white' />
+        </linearGradient>
+        <mask id={id + '-paths-mask'}>
+          <rect width='1200' height='760' fill={'url(#' + id + '-quiet-left)'} />
+        </mask>
         <linearGradient id={id + '-light'}>
           <stop stopColor='white' stopOpacity='0' />
           <stop offset='.65' stopColor='white' />
@@ -24,10 +31,10 @@ export function FlowArtwork() {
           {/* Brain with neural connections. */}
           <g transform='translate(650 90)'>
             <rect className='signal-panel' width='100' height='100' rx='22' />
-            <path d='M50 25C38 14 25 25 28 36C14 42 20 57 27 59C21 73 39 84 50 72C61 84 79 73 73 59C85 51 82 38 72 36C75 23 60 15 50 25V72M28 36L39 43L31 58L43 65M72 36L61 43L69 58L57 65M39 43L50 49L61 43M43 65L50 57L57 65' />
-            <circle cx='39' cy='43' r='3' />
-            <circle cx='61' cy='43' r='3' />
-            <circle cx='50' cy='57' r='3' />
+            <path d='M50 25C48 15 34 15 31 25C20 24 15 34 20 43C10 51 15 64 24 66C22 78 36 86 45 77C48 76 50 72 50 68V25ZM50 25C52 15 66 15 69 25C80 24 85 34 80 43C90 51 85 64 76 66C78 78 64 86 55 77C52 76 50 72 50 68' />
+            <path d='M31 25C28 33 33 38 39 38M20 43C28 40 34 45 33 52M24 66C31 69 38 63 37 57M50 48C40 46 39 54 42 59M69 25C72 33 67 38 61 38M80 43C72 40 66 45 67 52M76 66C69 69 62 63 63 57M50 48C60 46 61 54 58 59' />
+            <circle cx='39' cy='38' r='2' />
+            <circle cx='61' cy='38' r='2' />
           </g>
           {/* Matrix cubes. */}
           <g transform='translate(760 615)'>
@@ -45,10 +52,10 @@ export function FlowArtwork() {
           </g>
         </g>
       </defs>
-      <use href={'#' + id + '-paths'} className='signal-paths' />
+      <use href={'#' + id + '-paths'} className='signal-paths' mask={'url(#' + id + '-paths-mask)'} />
       <use href={'#' + id + '-symbols'} className='signal-symbols' />
       <g className='signal-lit' mask={'url(#' + id + '-wave)'}>
-        <use href={'#' + id + '-paths'} />
+        <use href={'#' + id + '-paths'} mask={'url(#' + id + '-paths-mask)'} />
         <use href={'#' + id + '-symbols'} />
       </g>
     </svg>

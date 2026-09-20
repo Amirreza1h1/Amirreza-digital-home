@@ -2,10 +2,15 @@
 
 The portfolio uses ice-blue surfaces and deep blue accents in light mode, midnight navy and cyan in dark mode.
 Soft sans-serif headings, organic portrait framing, and gently flowing SVG paths make the space welcoming.
-Violet and blue accents highlight decorative brain, database, and matrix-cube panels. A shared SVG light
-mask travels left to right over both paths and symbols, making each symbol thicker and brighter as the wave
-reaches it. The 12-second cycle is controlled by `.signal-sweep`; reduced-motion mode shows static symbols
-instead. All content remains in `src/data/`; the design adds no services or invented achievements.
+Violet and blue accents highlight decorative brain, database, and matrix-cube panels. A shared SVG light mask
+travels left to right over both paths and symbols, making each symbol thicker and brighter as the wave reaches
+it. The 12-second cycle is controlled by `.signal-sweep`; reduced-motion mode shows static symbols instead.
+All content remains in `src/data/`; the design adds no services or invented achievements.
+
+The paths have a separate left-side fade mask to keep the hero copy clear without dimming the symbols or their
+synchronized highlights. Below 1024px, the artwork occupies the portrait area rather than the copy. Mobile
+navigation uses the existing Radix Dialog package for a viewport-level backdrop, focus management, Escape
+dismissal, and a scrollable panel on short screens.
 
 ## Where to customize
 

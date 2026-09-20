@@ -11,11 +11,12 @@ interface NavLinkProps {
 
 export function NavLink({ href, children }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
 
   return (
     <Link
       href={href}
+      aria-current={isActive ? 'page' : undefined}
       className={cn(
         'rounded-md px-3 py-1.5 text-sm transition-colors',
         isActive

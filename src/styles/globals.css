@@ -446,12 +446,17 @@ body {
     transform: rotate(25deg);
   }
 }
-@media (max-width: 767px) {
+/* In stacked layouts, keep the artwork with the portrait, below the copy. */
+@media (max-width: 1023px) {
   .flow-artwork {
-    width: 180%;
-    left: -55%;
-    opacity: 0.55;
+    top: auto;
+    bottom: 0;
+    height: 48%;
+    width: 100%;
+    left: 0;
   }
+}
+@media (max-width: 767px) {
   .friendly-hero h1 {
     font-size: clamp(2.6rem, 12vw, 4rem);
     overflow-wrap: anywhere;

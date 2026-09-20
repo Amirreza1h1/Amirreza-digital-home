@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import type { Education, TeachingRole } from '@/types/education';
 
 export interface Certificate {
@@ -59,7 +60,7 @@ export const certificates: Certificate[] = [
     issuer: 'Sololearn',
     issuedDate: '21 October 2024',
     status: 'completed',
-    image: '/Intermediate.jpg',
+    image: assetPath('/Intermediate.jpg'),
     description:
       'Completed the Python Intermediate course, demonstrating theoretical and practical understanding.',
   },
@@ -68,7 +69,7 @@ export const certificates: Certificate[] = [
     issuer: 'Sololearn',
     issuedDate: '26 August 2023',
     status: 'completed',
-    image: '/begginer.jpg',
+    image: assetPath('/begginer.jpg'),
     description:
       'Completed the Introduction to Python course, demonstrating theoretical and practical understanding.',
   },

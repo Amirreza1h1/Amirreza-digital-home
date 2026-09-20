@@ -18,7 +18,7 @@ export function NavDropdown({ label, items }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLLIElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isActive = items.some(item => pathname === item.href);
+  const isActive = items.some(item => pathname.replace(/\/$/, '') === item.href.replace(/\/$/, ''));
 
   const cancelClose = () => {
     if (closeTimer.current) {

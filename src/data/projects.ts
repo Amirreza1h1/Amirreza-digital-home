@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import type { Project } from '@/types/project';
 
 export const projects: Project[] = [
@@ -29,10 +30,10 @@ export const projects: Project[] = [
     endDate: null,
     links: {
       github: 'https://github.com/Amirreza1h1/University/tree/main/Bachelor%20(BS)/Final%20Project',
-      download: '/software.exe',
+      download: assetPath('/software.exe'),
     },
     demo: {
-      image: '/game-result.png',
+      image: assetPath('/game-result.png'),
       caption:
         'Example exported run: population by strategy, crashes per round, offspring, and surviving-bot scores. This run ends with no survivors; outcomes depend on settings and seed.',
       downloadLabel: 'Download for Windows (.exe · 47 MiB)',

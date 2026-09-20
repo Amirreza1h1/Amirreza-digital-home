@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "node scripts/fix-windows-export.mjs",
     "start": "next start",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",

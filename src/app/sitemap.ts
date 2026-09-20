@@ -3,6 +3,8 @@ import { siteConfig } from '@/config/site';
 import { projects } from '@/data/projects';
 import { isRouteVisible } from '@/config/visibility';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
 
@@ -25,5 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...projectRoutes].filter(route => isRouteVisible(new URL(route.url).pathname));
+  return [...staticRoutes, ...projectRoutes].filter(route =>
+    isRouteVisible(route.url.slice(base.length) || '/'),
+  );
 }

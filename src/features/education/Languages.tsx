@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/asset-path';
 import { englishResult, frenchLearning } from '@/data/languages';
 import { Badge } from '@/components/ui/badge';
 import { SectionHeader } from '@/components/shared/SectionHeader';
@@ -38,7 +39,7 @@ export function Languages() {
           </p>
           <figure className='mt-5'>
             <a
-              href='/IELTS.jpg'
+              href={assetPath('/IELTS.jpg')}
               target='_blank'
               rel='noopener noreferrer'
               className='block rounded-lg'
