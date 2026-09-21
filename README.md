@@ -1,11 +1,11 @@
-# Personal portfolio
+# Amirreza Hajizadeh — Digital Home
 
-A sanitized, data-driven portfolio starter built with the Next.js App Router, React, TypeScript, Tailwind CSS,
-Framer Motion, MDX, and reusable UI primitives.
+My personal portfolio, built with Next.js App Router, React, TypeScript, Tailwind CSS, and Framer Motion. It
+presents my education, skills, certificates, language learning, and Cowards' Game Simulation.
 
-The application intentionally contains neutral placeholders and empty content collections. Add owner data in
-`src/data/`, site metadata in `src/config/site.ts`, blog posts in `src/content/blog/`, and public assets in
-`public/`.
+Portfolio content lives in `src/data/`, site metadata in `src/config/site.ts`, and public assets in `public/`.
+Planned work is explicitly labelled. Experience, research, and publications remain hidden until content is
+ready.
 
 ## Local development
 
@@ -24,14 +24,13 @@ npm run format:check
 npm run build
 ```
 
-There is no lint or automated test script in this starter. TypeScript, Prettier, and the production build are
-the available quality gates.
+There is no lint or automated test script. TypeScript, Prettier, and the production build are the available
+quality gates.
 
 ## Deployment
 
 `npm run build` creates a static site in `out/`. Deploy the contents of that directory; no Node.js server,
-backend, or database is needed. `npm start` (`next start`) and the legacy Docker setup are not compatible with
-static export. For local preview, serve `out/` with a static HTTP server instead.
+backend, or database is needed. For local preview, serve `out/` with a static HTTP server.
 
 The post-build script corrects Windows-only navigation payload filenames emitted by Next.js 16.3.3. It leaves
 Linux builds unchanged and does not modify dependencies or application content.
@@ -67,9 +66,8 @@ certificates, the IELTS image, CV, and executable; review these files before pub
 - `src/components/`: layout, shared components, and UI primitives
 - `src/features/`: feature-oriented portfolio sections
 - `src/data/`: typed portfolio content
-- `src/content/blog/`: MDX articles
 - `src/config/`: site-wide configuration
-- `src/lib/`: blog and SEO helpers
-- `src/theme/`: design tokens and animation definitions
+- `src/lib/`: asset-path and SEO helpers
+- `src/theme/`: shared icon colors
 - `src/types/`: shared content types
 - `src/hooks/` and `src/utils/`: reusable behavior and helpers

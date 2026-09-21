@@ -13,6 +13,8 @@ dist/
 
 # ─── Environment variables ──────────────────────────────────────────────────
 .env
+.env.*
+!.env.example
 .env.local
 .env.development.local
 .env.test.local
@@ -46,3 +48,4 @@ coverage/
 *.pem
 .vercel
 .turbo/
+.playwright-mcp/
