@@ -49,7 +49,7 @@ export default function AboutPage() {
                 <p>{profile.bio}</p>
               </div>
             )}
-            {(profile.roles.length > 0 || profile.location || profile.timeZone) && (
+            {(profile.roles.length > 0 || profile.location) && (
               <div className='mt-2 flex flex-wrap gap-2'>
                 {profile.roles.map(role => (
                   <span
@@ -62,11 +62,6 @@ export default function AboutPage() {
                 {profile.location && (
                   <span className='border-border bg-surface text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
                     {profile.location}
-                  </span>
-                )}
-                {profile.timeZone && (
-                  <span className='border-border bg-surface text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs'>
-                    {profile.timeZone}
                   </span>
                 )}
               </div>

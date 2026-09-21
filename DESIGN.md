@@ -7,10 +7,11 @@ travels left to right over both paths and symbols, making each symbol thicker an
 it. The 12-second cycle is controlled by `.signal-sweep`; reduced-motion mode shows static symbols instead.
 All content remains in `src/data/`; the design adds no services or invented achievements.
 
-The paths have a separate left-side fade mask to keep the hero copy clear without dimming the symbols or their
-synchronized highlights. Below 1024px, the artwork occupies the portrait area rather than the copy. Mobile
-navigation uses the existing Radix Dialog package for a viewport-level backdrop, focus management, Escape
-dismissal, and a scrollable panel on short screens.
+The paths use a left-side fade mask to protect the text without dimming the symbols or their synchronized
+highlights. The brain uses a side-view
+outline with cortical folds, cerebellum, and brainstem. Below 1024px, the artwork occupies the portrait area
+rather than the copy. Mobile navigation uses the existing Radix Dialog package for a viewport-level backdrop,
+focus management, Escape dismissal, and a scrollable panel on short screens.
 
 ## Where to customize
 
