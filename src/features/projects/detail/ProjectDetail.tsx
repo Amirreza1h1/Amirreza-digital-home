@@ -151,18 +151,20 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </AnimatedSection>
       )}
       {/* Outcomes */}
-      <AnimatedSection>
-        <Section title='Outcomes'>
-          <ul className='flex flex-col gap-3'>
-            {project.outcomes.map((o, i) => (
-              <li key={i} className='flex items-start gap-3'>
-                <CheckCircle className='mt-0.5 h-4 w-4 shrink-0 text-emerald-500' />
-                <p className='text-muted-foreground text-sm leading-relaxed'>{o}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      </AnimatedSection>
+      {project.outcomes.length > 0 && (
+        <AnimatedSection>
+          <Section title='Outcomes'>
+            <ul className='flex flex-col gap-3'>
+              {project.outcomes.map((o, i) => (
+                <li key={i} className='flex items-start gap-3'>
+                  <CheckCircle className='mt-0.5 h-4 w-4 shrink-0 text-emerald-500' />
+                  <p className='text-muted-foreground text-sm leading-relaxed'>{o}</p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </AnimatedSection>
+      )}
 
       {/* Lessons Learned */}
       {project.lessonsLearned.length > 0 && (

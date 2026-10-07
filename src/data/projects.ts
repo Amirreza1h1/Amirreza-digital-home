@@ -18,15 +18,22 @@ export const projects: Project[] = [
     architecture: 'An ongoing web project built with Next.js, Django, PostgreSQL, and Docker.',
     techStack: ['Next.js', 'Django', 'PostgreSQL', 'Docker'],
     challenges: [],
-    outcomes: [
-      'A live public website with a responsive landing experience.',
-      'Screens for an administrative workspace, search, placement-session booking, and teacher presentation.',
-      'Ongoing development with further refinement planned before the project is complete.',
+    outcomes: [],
+    lessonsLearned: [
+      'Applying Next.js, Django, PostgreSQL, and Docker together in one ongoing web application.',
+      'Designing responsive public interfaces for both desktop and mobile screens.',
+      'Connecting public-facing content with administrative workflows in the same product.',
     ],
-    lessonsLearned: [],
     teamSize: null,
     role: 'Developer',
-    collaborators: [],
+    collaborators: [
+      {
+        name: 'Project colleague',
+        specialty: 'Project collaborator',
+        role: 'Collaborator',
+        website: 'https://sjdfani.com/',
+      },
+    ],
     endDate: null,
     links: {},
     demo: {

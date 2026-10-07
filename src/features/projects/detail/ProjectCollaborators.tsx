@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Linkedin } from 'lucide-react';
+import { Globe, Linkedin } from 'lucide-react';
 import { profile } from '@/data/profile';
 import { socials } from '@/data/socials';
 import type { Collaborator } from '@/types/project';
@@ -64,6 +64,17 @@ function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: 
           className='text-muted-foreground hover:text-foreground mt-0.5 shrink-0 transition-colors'
         >
           <Linkedin className='h-4 w-4' />
+        </a>
+      )}
+      {person.website && (
+        <a
+          href={person.website}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={`${person.name}'s portfolio`}
+          className='text-muted-foreground hover:text-foreground mt-0.5 shrink-0 transition-colors'
+        >
+          <Globe className='h-4 w-4' />
         </a>
       )}
     </div>
