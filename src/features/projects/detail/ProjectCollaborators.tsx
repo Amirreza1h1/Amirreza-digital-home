@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import { Globe, Linkedin } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { profile } from '@/data/profile';
-import { socials } from '@/data/socials';
 import type { Collaborator } from '@/types/project';
 
 interface ProjectCollaboratorsProps {
@@ -40,8 +39,11 @@ function Avatar({ person }: { person: Collaborator }) {
 }
 
 function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: boolean }) {
-  return (
-    <div className='border-border bg-card flex min-w-0 items-start gap-4 rounded-xl border p-4'>
+  const canLinkEntireCard = Boolean(person.website && !isOwner);
+  const cardClassName =
+    'border-border bg-card flex min-w-0 items-start gap-4 rounded-xl border p-4 transition-colors';
+  const cardContent = (
+    <>
       <Avatar person={person} />
       <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
         <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
@@ -55,7 +57,16 @@ function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: 
         <p className='text-primary text-sm font-medium wrap-break-word'>{person.role}</p>
         <p className='text-muted-foreground text-xs wrap-break-word'>{person.specialty}</p>
       </div>
-      {person.linkedin && (
+      {!canLinkEntireCard && person.email && (
+        <a
+          href={`mailto:${person.email}`}
+          aria-label={`Email ${person.name}`}
+          className='text-muted-foreground hover:text-foreground mt-0.5 shrink-0 transition-colors'
+        >
+          <Mail className='h-4 w-4' />
+        </a>
+      )}
+      {!canLinkEntireCard && person.linkedin && (
         <a
           href={linkedinUrl(person.linkedin)}
           target='_blank'
@@ -66,28 +77,32 @@ function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: 
           <Linkedin className='h-4 w-4' />
         </a>
       )}
-      {person.website && (
-        <a
-          href={person.website}
-          target='_blank'
-          rel='noopener noreferrer'
-          aria-label={`${person.name}'s portfolio`}
-          className='text-muted-foreground hover:text-foreground mt-0.5 shrink-0 transition-colors'
-        >
-          <Globe className='h-4 w-4' />
-        </a>
-      )}
-    </div>
+    </>
   );
+
+  if (canLinkEntireCard) {
+    return (
+      <a
+        href={person.website}
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label={`Visit ${person.name}'s portfolio`}
+        className={`${cardClassName} hover:border-primary/50 hover:bg-surface focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none`}
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return <div className={cardClassName}>{cardContent}</div>;
 }
 
 export function ProjectCollaborators({ role, collaborators }: ProjectCollaboratorsProps) {
-  const linkedIn = socials.find(social => social.name === 'LinkedIn')?.url;
   const owner: Collaborator = {
     name: profile.name,
     specialty: profile.headline ?? '',
     role: role ?? 'Contributor',
-    linkedin: linkedIn,
+    email: profile.emails[0],
     photo: profile.photo || undefined,
   };
   const people = [owner, ...collaborators];

@@ -28,10 +28,11 @@ export const projects: Project[] = [
     role: 'Developer',
     collaborators: [
       {
-        name: 'Project colleague',
+        name: 'Sajjad Fani',
         specialty: 'Project collaborator',
         role: 'Collaborator',
         website: 'https://sjdfani.com/',
+        photo: assetPath('/projects/mashhad-ielts-house/sajjad.webp'),
       },
     ],
     endDate: null,

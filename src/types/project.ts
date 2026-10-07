@@ -26,6 +26,8 @@ export interface Collaborator {
   role: string;
   /** LinkedIn profile — full URL or just the username/vanity slug. */
   linkedin?: string;
+  /** Contact email address. */
+  email?: string;
   /** Public professional website or portfolio. */
   website?: string;
   /** Path to a photo under /public (e.g. '/images/team/name.jpg'). Falls back to initials. */
