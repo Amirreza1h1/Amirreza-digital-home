@@ -1,6 +1,21 @@
 export type ProjectCategory = 'professional' | 'academic' | 'freelance';
 export type ProjectStatus = 'completed' | 'ongoing';
 
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+}
+
+export interface ProjectDemo {
+  image: string;
+  caption: string;
+  instructions: string[];
+  downloadLabel?: string;
+  note: string;
+  title?: string;
+  screenshots?: ProjectScreenshot[];
+}
+
 /** A person who contributed to a project. The owner is added automatically from the profile. */
 export interface Collaborator {
   /** Full name (first + last). */
@@ -19,6 +34,8 @@ export interface Project {
   slug: string;
   title: string;
   category: ProjectCategory;
+  /** Secondary categories, used when a project legitimately spans more than one context. */
+  tags?: ProjectCategory[];
   featured: boolean;
   status: ProjectStatus;
   overview: string;
@@ -40,5 +57,5 @@ export interface Project {
     live?: string;
     download?: string;
   };
-  demo?: { image: string; caption: string; instructions: string[]; downloadLabel: string; note: string };
+  demo?: ProjectDemo;
 }

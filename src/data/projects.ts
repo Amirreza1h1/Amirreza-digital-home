@@ -3,6 +3,68 @@ import type { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    slug: 'mashhad-ielts-house-website',
+    title: 'Mashhad IELTS House Website',
+    category: 'professional',
+    tags: ['freelance'],
+    featured: true,
+    status: 'ongoing',
+    overview:
+      'An ongoing website project for Mashhad IELTS House, combining a public IELTS-focused website with an administrative workspace.',
+    problem:
+      'Give an IELTS institute a focused public presence while supporting key day-to-day institute workflows in one web product.',
+    solution:
+      'A responsive public website and administrative workspace, with the supplied screens showing content discovery, placement-session booking, teacher presentation, and administration views.',
+    architecture: 'An ongoing web project built with Next.js, Django, PostgreSQL, and Docker.',
+    techStack: ['Next.js', 'Django', 'PostgreSQL', 'Docker'],
+    challenges: [],
+    outcomes: [
+      'A live public website with a responsive landing experience.',
+      'Screens for an administrative workspace, search, placement-session booking, and teacher presentation.',
+      'Ongoing development with further refinement planned before the project is complete.',
+    ],
+    lessonsLearned: [],
+    teamSize: null,
+    role: 'Developer',
+    collaborators: [],
+    endDate: null,
+    links: {},
+    demo: {
+      title: 'Project Screens',
+      image: assetPath('/projects/mashhad-ielts-house/01-landing.png'),
+      caption:
+        'Selected screens from the ongoing project. Administrative names, contact details, counts, and profiles shown in the supplied screens are clearly marked as fake data.',
+      note: 'These screenshots show the current public and administrative interfaces. The project is ongoing.',
+      instructions: [],
+      screenshots: [
+        {
+          src: assetPath('/projects/mashhad-ielts-house/01-landing.png'),
+          alt: 'Mashhad IELTS House public landing page on desktop',
+        },
+        {
+          src: assetPath('/projects/mashhad-ielts-house/02-admin-dashboard.png'),
+          alt: 'Mashhad IELTS House administrative dashboard using fake data',
+        },
+        {
+          src: assetPath('/projects/mashhad-ielts-house/03-global-search.png'),
+          alt: 'Mashhad IELTS House global search interface using fake data',
+        },
+        {
+          src: assetPath('/projects/mashhad-ielts-house/04-booking-calendar.png'),
+          alt: 'Mashhad IELTS House placement-session booking interface using fake data',
+        },
+        {
+          src: assetPath('/projects/mashhad-ielts-house/05-teachers.png'),
+          alt: 'Mashhad IELTS House teacher presentation page using fake data',
+        },
+        {
+          src: assetPath('/projects/mashhad-ielts-house/06-mobile-landing.png'),
+          alt: 'Mashhad IELTS House responsive public landing page on mobile',
+        },
+      ],
+    },
+  },
+  {
     slug: 'cowards-game-simulation',
     title: "Cowards' Game Simulation",
     category: 'academic',

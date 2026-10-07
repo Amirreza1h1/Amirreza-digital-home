@@ -22,6 +22,8 @@ const categoryLabel: Record<Project['category'], string> = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const categories = [...new Set([project.category, ...(project.tags ?? [])])];
+
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -31,17 +33,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className='bg-surface mb-6 overflow-hidden rounded-xl p-3'>
           <Image
             src={project.demo.image}
-            alt={`${project.title} — example results`}
+            alt={`${project.title} preview`}
             width={1119}
             height={626}
             sizes='(min-width: 768px) 550px, 100vw'
+            loading={project.featured ? 'eager' : 'lazy'}
             className='h-auto w-full rounded-lg'
           />
         </div>
       )}
       <div className='flex items-start justify-between gap-3'>
         <div className='flex flex-wrap gap-2'>
-          <Badge variant={categoryVariant[project.category]}>{categoryLabel[project.category]}</Badge>
+          {categories.map(category => (
+            <Badge key={category} variant={categoryVariant[category]}>
+              {categoryLabel[category]}
+            </Badge>
+          ))}
           {project.links.download && <Badge variant='outline'>Downloadable</Badge>}
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
             {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}

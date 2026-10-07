@@ -40,7 +40,8 @@ export default async function ProjectPage({ params }: Props) {
     professional: 'Professional',
     academic: 'Academic',
     freelance: 'Freelance',
-  }[project.category];
+  } as const;
+  const categories = [...new Set([project.category, ...(project.tags ?? [])])];
 
   return (
     <div className='container mx-auto py-12'>
@@ -55,17 +56,11 @@ export default async function ProjectPage({ params }: Props) {
       {/* Project header */}
       <div className='border-border flex flex-col gap-4 border-b pb-8'>
         <div className='flex flex-wrap gap-2'>
-          <Badge
-            variant={
-              project.category === 'professional'
-                ? 'professional'
-                : project.category === 'academic'
-                  ? 'academic'
-                  : 'freelance'
-            }
-          >
-            {categoryLabel}
-          </Badge>
+          {categories.map(category => (
+            <Badge key={category} variant={category}>
+              {categoryLabel[category]}
+            </Badge>
+          ))}
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
             {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
           </Badge>

@@ -20,6 +20,13 @@ const categoryLabel: Record<Project['category'], string> = {
 };
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
+  const categories = [...new Set([project.category, ...(project.tags ?? [])])];
+  const screenshots = project.demo?.screenshots?.length
+    ? project.demo.screenshots
+    : project.demo
+      ? [{ src: project.demo.image, alt: project.demo.caption }]
+      : [];
+
   return (
     <div className='flex flex-col gap-16 py-12'>
       {/* Overview */}
@@ -65,31 +72,40 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       {project.demo && (
         <AnimatedSection>
-          <Section title='Try the Simulation'>
+          <Section title={project.demo.title ?? 'Project Screens'}>
             <p className='text-muted-foreground text-sm'>{project.demo.note}</p>
-            <ol className='text-muted-foreground list-decimal space-y-2 pl-5 text-sm'>
-              {project.demo.instructions.map(step => (
-                <li key={step}>{step}</li>
+            {project.demo.instructions.length > 0 && (
+              <ol className='text-muted-foreground list-decimal space-y-2 pl-5 text-sm'>
+                {project.demo.instructions.map(step => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            )}
+            <div className='grid gap-5 md:grid-cols-2'>
+              {screenshots.map((screenshot, index) => (
+                <figure
+                  key={screenshot.src}
+                  className={index === 0 && screenshots.length === 1 ? 'md:col-span-2' : ''}
+                >
+                  <a
+                    href={screenshot.src}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`Open ${screenshot.alt}`}
+                  >
+                    <Image
+                      src={screenshot.src}
+                      alt={screenshot.alt}
+                      width={1119}
+                      height={626}
+                      sizes='(min-width: 1200px) 1136px, 100vw'
+                      className='border-border h-auto w-full rounded-xl border transition-opacity hover:opacity-90'
+                    />
+                  </a>
+                </figure>
               ))}
-            </ol>
-            <figure>
-              <a
-                href={project.demo.image}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Open full-size simulation results'
-              >
-                <Image
-                  src={project.demo.image}
-                  alt='Bot Society simulation result charts'
-                  width={1119}
-                  height={626}
-                  sizes='(min-width: 1200px) 1136px, 100vw'
-                  className='border-border h-auto w-full rounded-xl border'
-                />
-              </a>
-              <figcaption className='text-muted-foreground mt-3 text-sm'>{project.demo.caption}</figcaption>
-            </figure>
+            </div>
+            <p className='text-muted-foreground text-sm'>{project.demo.caption}</p>
           </Section>
         </AnimatedSection>
       )}
@@ -178,16 +194,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <AnimatedSection>
         <div className='text-muted-foreground flex flex-wrap gap-6 text-sm'>
           <div className='flex items-center gap-2'>
-            <Badge
-              variant={
-                project.category === 'professional'
-                  ? 'professional'
-                  : project.category === 'academic'
-                    ? 'academic'
-                    : 'freelance'
-              }
-            >
-              {categoryLabel[project.category]}
+            {categories.map(category => (
+              <Badge key={category} variant={category}>
+                {categoryLabel[category]}
+              </Badge>
+            ))}
+            <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
+              {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
             </Badge>
           </div>
           {project.role && (

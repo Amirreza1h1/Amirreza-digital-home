@@ -27,7 +27,10 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
     return <ContentPlaceholder description='Project records have not been provided yet.' />;
   }
 
-  const filtered = active === 'all' ? projects : projects.filter(project => project.category === active);
+  const filtered =
+    active === 'all'
+      ? projects
+      : projects.filter(project => [project.category, ...(project.tags ?? [])].includes(active));
 
   return (
     <div className='flex flex-col gap-8'>
