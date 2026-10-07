@@ -48,11 +48,6 @@ function CollaboratorCard({ person, isOwner }: { person: Collaborator; isOwner: 
       <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
         <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
           <h3 className='text-foreground font-medium wrap-break-word'>{person.name}</h3>
-          {isOwner && (
-            <span className='border-primary/20 bg-primary/5 text-primary rounded-full border px-2 py-0.5 text-[10px] font-medium tracking-wide uppercase'>
-              You
-            </span>
-          )}
         </div>
         <p className='text-primary text-sm font-medium wrap-break-word'>{person.role}</p>
         <p className='text-muted-foreground text-xs wrap-break-word'>{person.specialty}</p>
