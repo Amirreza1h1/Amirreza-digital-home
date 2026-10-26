@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge';
-import { formatDateRange } from '@/utils/date';
+import { formatDate, formatDateRange } from '@/utils/date';
 import type { Education } from '@/types/education';
 
 interface EducationCardProps {
@@ -7,6 +7,17 @@ interface EducationCardProps {
 }
 
 export function EducationCard({ education }: EducationCardProps) {
+  const status =
+    education.status === 'completed'
+      ? { badge: 'completed' as const, label: 'Graduated' }
+      : education.status === 'on-hold'
+        ? { badge: 'outline' as const, label: 'On Hold' }
+        : { badge: 'ongoing' as const, label: 'In Progress' };
+  const dateRange =
+    education.status === 'on-hold'
+      ? `${formatDate(education.startDate)} — On hold`
+      : formatDateRange(education.startDate, education.endDate);
+
   return (
     <div className='border-border bg-card flex flex-col gap-4 rounded-xl border p-6'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
@@ -17,12 +28,8 @@ export function EducationCard({ education }: EducationCardProps) {
           <p className='text-primary text-sm font-medium'>{education.institution}</p>
         </div>
         <div className='flex shrink-0 flex-wrap items-center gap-2 sm:flex-col sm:items-end'>
-          <Badge variant={education.status === 'ongoing' ? 'ongoing' : 'completed'}>
-            {education.status === 'ongoing' ? 'In Progress' : 'Graduated'}
-          </Badge>
-          <span className='text-muted-foreground font-mono text-xs whitespace-nowrap'>
-            {formatDateRange(education.startDate, education.endDate)}
-          </span>
+          <Badge variant={status.badge}>{status.label}</Badge>
+          <span className='text-muted-foreground font-mono text-xs whitespace-nowrap'>{dateRange}</span>
         </div>
       </div>
 
@@ -34,6 +41,7 @@ export function EducationCard({ education }: EducationCardProps) {
           </span>
         </div>
       )}
+      {education.note && <p className='text-muted-foreground text-sm leading-relaxed'>{education.note}</p>}
       {education.project && (
         <div className='border-border border-t pt-4'>
           <h4 className='font-semibold'>Bachelor’s Project</h4>

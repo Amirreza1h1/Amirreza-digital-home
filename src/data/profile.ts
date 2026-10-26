@@ -8,10 +8,9 @@ export interface Profile {
   roles: string[];
   bio?: string;
   location?: string;
-  plannedLocation?: string;
+  previousLocation?: string;
   timeZone?: string;
   emails: string[];
-  phones: string[];
   photo?: string;
   workResume?: string;
   academicResume?: string;
@@ -27,11 +26,10 @@ export const profile: Profile = {
   headline: 'Python developer focused on learning to build practical AI applications.',
   bio: 'My direction is Python and Applied AI, with a particular interest in AI agents and privacy-first, local applications. My experience includes Python work and an AI-assisted English institute website using Django and Next.js. My next project goal is a Local AI Companion with conversation history, memory, and private document retrieval.',
   roles: ['Computer Engineer', 'M.Sc. Artificial Intelligence'],
-  location: 'Mashhad, Iran',
-  plannedLocation: 'Toronto, Canada (in process)',
-  timeZone: 'Asia/Tehran',
+  location: 'Barri, Canada',
+  previousLocation: 'Mashhad, Iran',
+  timeZone: 'America/Toronto',
   emails: ['amirrezahajizadeh2002@gmail.com', 'amirreza.haji.0926264710@gmail.com'],
-  phones: ['+98-930 634 1814', '+98-915 228 8744'],
   academicResume: assetPath('/Academic_CV.pdf'),
   // Static imports produce a new asset URL whenever the image contents change.
   photo: profilePicture.src,

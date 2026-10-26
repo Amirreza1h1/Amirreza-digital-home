@@ -82,7 +82,7 @@ export function Footer() {
             {profile.location && (
               <p className='flex items-center gap-2'>
                 <Image
-                  src={assetPath('/Iran.png')}
+                  src={assetPath('/Canada.png')}
                   alt=''
                   width={24}
                   height={16}
@@ -91,16 +91,16 @@ export function Footer() {
                 {profile.location}
               </p>
             )}
-            {profile.plannedLocation && (
+            {profile.previousLocation && (
               <p className='flex items-center gap-2'>
                 <Image
-                  src={assetPath('/Canada.png')}
+                  src={assetPath('/Iran.png')}
                   alt=''
                   width={24}
                   height={16}
                   className='h-4 w-6 shrink-0 object-contain'
                 />
-                {profile.plannedLocation}
+                Previously based in {profile.previousLocation}
               </p>
             )}
           </div>

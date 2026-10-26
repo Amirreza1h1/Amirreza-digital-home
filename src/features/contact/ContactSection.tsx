@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin, MapPin, Send, Link2, MessageCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, Link2, MessageCircle } from 'lucide-react';
 import { iconTone } from '@/theme/icons';
 import { cn } from '@/utils/cn';
 import type { LucideIcon } from 'lucide-react';
@@ -26,13 +26,6 @@ export function ContactSection() {
       href: `mailto:${email}`,
       description: 'Public email address',
     })),
-    ...profile.phones.map((phone, index) => ({
-      icon: Phone,
-      label: profile.phones.length > 1 ? `Phone ${index + 1}` : 'Phone',
-      value: phone,
-      href: `tel:${phone.replace(/[^+\d]/g, '')}`,
-      description: 'Public phone number',
-    })),
     ...socials.map(social => ({
       icon: socialIconMap[social.icon] ?? Link2,
       label: social.name,
@@ -53,13 +46,13 @@ export function ContactSection() {
           },
         ]
       : []),
-    ...(profile.plannedLocation
+    ...(profile.previousLocation
       ? [
           {
             icon: MapPin,
-            label: 'Planned location',
-            value: profile.plannedLocation,
-            description: 'Relocation in process',
+            label: 'Previous location',
+            value: profile.previousLocation,
+            description: 'Previously based location',
           },
         ]
       : []),

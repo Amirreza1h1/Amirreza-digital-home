@@ -1,4 +1,4 @@
-export type EducationStatus = 'completed' | 'ongoing';
+export type EducationStatus = 'completed' | 'ongoing' | 'on-hold';
 
 export interface Coursework {
   title: string;
@@ -21,6 +21,7 @@ export interface Education {
   startDate: string;
   endDate: string | null;
   status: EducationStatus;
+  note?: string;
   coursework: Coursework[];
   labResults?: Coursework[];
   project?: { title: string; url: string };
