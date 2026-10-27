@@ -100,13 +100,14 @@ export const projects: Project[] = [
     endDate: null,
     links: {
       github: 'https://github.com/Amirreza1h1/University/tree/main/Bachelor%20(BS)/Final%20Project',
-      download: assetPath('/software.exe'),
+      download:
+        'https://github.com/Amirreza1h1/Amirreza-digital-home/raw/refs/heads/main/downloads/cowards-game-simulation.exe',
     },
     demo: {
       image: assetPath('/game-result.png'),
       caption:
         'Example exported run: population by strategy, crashes per round, offspring, and surviving-bot scores. This run ends with no survivors; outcomes depend on settings and seed.',
-      downloadLabel: 'Download for Windows (.exe · 47 MiB)',
+      downloadLabel: 'Download from GitHub for Windows (.exe · 47 MiB)',
       note: 'The executable is not code-signed. Python and Qt are bundled; no account or internet connection is required according to the project README.',
       instructions: [
         'Download software.exe and open it on Windows. Initial startup may take a few seconds.',

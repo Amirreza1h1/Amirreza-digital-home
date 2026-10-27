@@ -21,6 +21,7 @@ const categoryLabel: Record<Project['category'], string> = {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   const categories = [...new Set([project.category, ...(project.tags ?? [])])];
+  const isExternalDownload = Boolean(project.links.download?.startsWith('http'));
   const screenshots = project.demo?.screenshots?.length
     ? project.demo.screenshots
     : project.demo
@@ -42,7 +43,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             <div className='mt-6 flex flex-wrap gap-3'>
               {project.links.download && (
                 <Button asChild size='sm'>
-                  <a href={project.links.download} download>
+                  <a
+                    href={project.links.download}
+                    {...(isExternalDownload
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : { download: true })}
+                  >
                     {project.demo?.downloadLabel ?? 'Download application'}
                   </a>
                 </Button>
