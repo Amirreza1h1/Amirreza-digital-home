@@ -26,7 +26,7 @@ export const profile: Profile = {
   headline: 'Python developer focused on learning to build practical AI applications.',
   bio: 'My direction is Python and Applied AI, with a particular interest in AI agents and privacy-first, local applications. My experience includes Python work and an AI-assisted English institute website using Django and Next.js. My next project goal is a Local AI Companion with conversation history, memory, and private document retrieval.',
   roles: ['Computer Engineer', 'M.Sc. Artificial Intelligence'],
-  location: 'Barri, Canada',
+  location: 'Barrie, Canada',
   previousLocation: 'Mashhad, Iran',
   timeZone: 'America/Toronto',
   emails: ['amirrezahajizadeh2002@gmail.com', 'amirreza.haji.0926264710@gmail.com'],

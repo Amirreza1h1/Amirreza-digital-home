@@ -70,7 +70,7 @@ export const certificates: Certificate[] = [
     issuer: 'Sololearn',
     issuedDate: '26 August 2023',
     status: 'completed',
-    image: assetPath('/begginer.jpg'),
+    image: assetPath('/beginner.jpg'),
     description:
       'Completed the Introduction to Python course, demonstrating theoretical and practical understanding.',
   },
