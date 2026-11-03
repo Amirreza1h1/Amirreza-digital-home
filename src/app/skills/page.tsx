@@ -16,7 +16,7 @@ export default function SkillsPage() {
       <PageHero
         label='Tools & Technologies'
         title='Skills'
-        description='Technologies organized by category, with the context in which I use and learn them.'
+        description='My skills are developing at a junior level, with Python and Git as stronger foundations. I welcome training and guidance as I continue to learn.'
       />
       <div className='container mx-auto py-10 md:py-16'>
         <SkillsGrid groups={skillGroups} />

@@ -42,6 +42,7 @@ export interface Project {
   tags?: ProjectCategory[];
   featured: boolean;
   status: ProjectStatus;
+  statusLabel?: string;
   overview: string;
   problem: string;
   solution: string;

@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: Props) {
             </Badge>
           ))}
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
-            {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
+            {project.statusLabel ?? (project.status === 'ongoing' ? 'Ongoing' : 'Completed')}
           </Badge>
           {project.links.download && <Badge variant='outline'>Downloadable</Badge>}
         </div>

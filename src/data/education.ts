@@ -82,4 +82,20 @@ export const certificates: Certificate[] = [
     description:
       'Target credential in my Applied AI roadmap, through the AI Agents Course. Not yet earned; verification details will be added after completion.',
   },
+  {
+    title: 'Further AI Learning',
+    issuer: 'Hugging Face',
+    duration: 'Planned learning goal',
+    status: 'planned',
+    description:
+      'Plan to pursue further learning and available certificates related to AI, language models, and agents. Specific courses have not yet been selected.',
+  },
+  {
+    title: 'Data Science and Machine Learning',
+    issuer: 'Kaggle',
+    duration: 'Planned learning goal',
+    status: 'planned',
+    description:
+      'Plan to pursue Kaggle learning certificates in data science and machine learning. Specific courses have not yet been selected.',
+  },
 ];

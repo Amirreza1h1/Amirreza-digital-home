@@ -208,7 +208,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </Badge>
             ))}
             <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
-              {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
+              {project.statusLabel ?? (project.status === 'ongoing' ? 'Ongoing' : 'Completed')}
             </Badge>
           </div>
           {project.role && (

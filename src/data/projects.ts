@@ -9,18 +9,19 @@ export const projects: Project[] = [
     tags: ['freelance'],
     featured: true,
     status: 'ongoing',
+    statusLabel: 'In Development',
     overview:
-      'An ongoing website project for Mashhad IELTS House, combining a public IELTS-focused website with an administrative workspace.',
+      'A website in development for Mashhad IELTS House, combining a public IELTS-focused website with an administrative workspace. Development is continuing with AI assistance, and it has not yet been deployed.',
     problem:
       'Give an IELTS institute a focused public presence while supporting key day-to-day institute workflows in one web product.',
     solution:
       'A responsive public website and administrative workspace, with the supplied screens showing content discovery, placement-session booking, teacher presentation, and administration views.',
-    architecture: 'An ongoing web project built with Next.js, Django, PostgreSQL, and Docker.',
+    architecture: 'A web project built with Next.js, Django, PostgreSQL, and Docker, with AI-assisted development and ongoing improvements.',
     techStack: ['Next.js', 'Django', 'PostgreSQL', 'Docker'],
     challenges: [],
     outcomes: [],
     lessonsLearned: [
-      'Applying Next.js, Django, PostgreSQL, and Docker together in one ongoing web application.',
+      'Learning to apply Next.js, Django, PostgreSQL, and Docker together in an AI-assisted web application.',
       'Designing responsive public interfaces for both desktop and mobile screens.',
       'Connecting public-facing content with administrative workflows in the same product.',
     ],
@@ -41,8 +42,8 @@ export const projects: Project[] = [
       title: 'Project Screens',
       image: assetPath('/projects/mashhad-ielts-house/01-landing.png'),
       caption:
-        'Selected screens from the ongoing project. Administrative names, contact details, counts, and profiles shown in the supplied screens are clearly marked as fake data.',
-      note: 'These screenshots show the current public and administrative interfaces. The project is ongoing.',
+        'Selected screens from the project. Administrative names, contact details, counts, and profiles shown in the supplied screens are clearly marked as fake data.',
+      note: 'The website is still in development with AI assistance and has not yet been deployed. These screenshots show its public and administrative interfaces.',
       instructions: [],
       screenshots: [
         {
@@ -79,13 +80,13 @@ export const projects: Project[] = [
     featured: true,
     status: 'completed',
     overview:
-      'A bachelor’s project with a downloadable Python desktop simulation, Bot Society, for exploring how six bot strategies interact under configurable game rules.',
+      'A bachelor’s project with a downloadable Python desktop simulation, Bot Society, for exploring how six bot strategies interact under configurable game rules. I built the simulation myself without AI assistance for the core; AI was used to create the Windows executable.',
     problem:
       'Explore how payoff rules, reproduction, and strategy choices affect a population of interacting bots over repeated rounds.',
     solution:
       'A PySide6 interface brings simulation settings, live charts, pause/resume controls, and saved game history into one window. Users can configure 2–5,000 bots and repeat runs with the same seed and settings.',
     architecture:
-      'The documented desktop application separates the interface (app.py), simulation rules (engine.py), plotting (charts.py), local SQLite history (storage.py), and styling (theme.py). PyInstaller bundles Python and Qt into a Windows executable.',
+      'The documented desktop application separates the interface (app.py), simulation rules (engine.py), plotting (charts.py), local SQLite history (storage.py), and styling (theme.py). The core simulation was built independently without AI; AI assistance was used to create the Windows executable with PyInstaller.',
     techStack: ['Python', 'PySide6 (Qt)', 'SQLite', 'PyInstaller'],
     challenges: [],
     outcomes: [

@@ -7,7 +7,8 @@ export function FlowArtwork() {
     <svg className='flow-artwork' viewBox='0 0 1200 760' fill='none' aria-hidden='true' focusable='false'>
       <defs>
         <linearGradient id={id + '-quiet-left'} x1='0' x2='1200' gradientUnits='userSpaceOnUse'>
-          <stop offset='0.42' stopColor='white' stopOpacity='0' />
+          <stop offset='0' stopColor='white' stopOpacity='0.18' />
+          <stop offset='0.3' stopColor='white' stopOpacity='0.28' />
           <stop offset='0.57' stopColor='white' />
         </linearGradient>
         <mask id={id + '-paths-mask'}>
@@ -46,7 +47,7 @@ export function FlowArtwork() {
             />
           </g>
           {/* Database cylinder. */}
-          <g transform='translate(1050 125)'>
+          <g transform='translate(1050 30)'>
             <rect className='signal-panel' width='100' height='105' rx='22' />
             <ellipse cx='50' cy='30' rx='26' ry='10' />
             <path d='M24 30v46c0 14 52 14 52 0V30M24 45c0 14 52 14 52 0M24 60c0 14 52 14 52 0' />

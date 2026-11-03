@@ -319,6 +319,19 @@ body {
 .welcome-note span {
   font-size: 1.6rem;
 }
+/* Keep the moving signal visually behind the words and outlined controls. */
+.hero-copy h1,
+.hero-copy p,
+.hero-copy span {
+  text-shadow: 0 0 4px var(--background), 0 0 10px var(--background), 0 0 16px var(--background);
+}
+.hero-copy a[class~='border'] {
+  background-color: var(--background);
+}
+.hero-copy a[class~='border']:hover {
+  background-color: var(--surface);
+  color: var(--foreground);
+}
 .flow-artwork {
   position: absolute;
   inset: 0;
@@ -408,15 +421,6 @@ body {
   animation-delay: -5s;
   stroke: var(--flow-warm);
 }
-.portrait-spark {
-  position: absolute;
-  right: -0.5rem;
-  top: -1.5rem;
-  z-index: 1;
-  font-size: 4rem;
-  color: var(--flow-warm);
-  animation: friendly-turn 12s ease-in-out infinite alternate;
-}
 .portrait-caption {
   transform: rotate(-3deg);
 }
@@ -438,22 +442,19 @@ body {
     transform: translateY(10px);
   }
 }
-@keyframes friendly-turn {
-  from {
-    transform: rotate(-15deg);
-  }
-  to {
-    transform: rotate(25deg);
-  }
-}
 /* In stacked layouts, keep the artwork with the portrait, below the copy. */
 @media (max-width: 1023px) {
   .flow-artwork {
     top: auto;
-    bottom: 0;
-    height: 48%;
-    width: 100%;
-    left: 0;
+    bottom: 2rem;
+    left: 50%;
+    width: 760px;
+    height: 482px;
+    transform: translateX(-50%);
+    opacity: 0.7;
+  }
+  .signal-sweep {
+    animation-duration: 16s;
   }
 }
 @media (max-width: 767px) {

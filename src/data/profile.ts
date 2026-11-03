@@ -23,9 +23,9 @@ export interface Profile {
 export const profile: Profile = {
   name: 'Amirreza Hajizadeh',
   initials: 'Amirreza1h1',
-  headline: 'Python developer focused on learning to build practical AI applications.',
-  bio: 'My direction is Python and Applied AI, with a particular interest in AI agents and privacy-first, local applications. My experience includes Python work and an AI-assisted English institute website using Django and Next.js. My next project goal is a Local AI Companion with conversation history, memory, and private document retrieval.',
-  roles: ['Computer Engineer', 'M.Sc. Artificial Intelligence'],
+  headline: 'Building toward Applied AI Engineering.',
+  bio: 'I develop Python-based software and am working to strengthen my foundations in backend engineering, machine learning, and intelligent systems. My long-term goal is to build reliable, privacy-conscious AI applications grounded in sound engineering, evaluation, and practical usefulness. I enjoy learning about computers and programming and am looking for a junior opportunity where I can grow with training and guidance. My projects include a Python simulation and an English institute website in development with AI assistance.',
+  roles: ['Python Developer', 'Computer Engineering Graduate'],
   location: 'Barrie, Canada',
   previousLocation: 'Mashhad, Iran',
   timeZone: 'America/Toronto',

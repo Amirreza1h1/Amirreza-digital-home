@@ -12,7 +12,7 @@ export const workAreas: WorkArea[] = [
   {
     title: 'Python development',
     description:
-      'Experience with Python, Arcade, and PySide6 (Qt), with continued practice in independent programming.',
+      'Python experience, with developing knowledge of Arcade and PySide6 (Qt) through independent programming.',
   },
   {
     title: 'Web applications',

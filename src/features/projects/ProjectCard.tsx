@@ -51,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
           {project.links.download && <Badge variant='outline'>Downloadable</Badge>}
           <Badge variant={project.status === 'ongoing' ? 'ongoing' : 'completed'}>
-            {project.status === 'ongoing' ? 'Ongoing' : 'Completed'}
+            {project.statusLabel ?? (project.status === 'ongoing' ? 'Ongoing' : 'Completed')}
           </Badge>
         </div>
         <ArrowUpRight className='text-muted-foreground group-hover:text-primary h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' />

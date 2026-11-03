@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       <PageHero
         label='Work'
         title='Projects'
-        description='Selected projects, prototypes, and case studies.'
+        description='Selected projects and plans from my journey as a junior developer, with room to keep learning and improving.'
       />
       <div className='container mx-auto py-10 md:py-16'>
         {projects.length > 0 && (

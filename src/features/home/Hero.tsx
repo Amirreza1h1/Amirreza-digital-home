@@ -18,10 +18,10 @@ export function Hero() {
   return (
     <section className='friendly-hero border-border relative isolate flex min-h-[85vh] items-center overflow-hidden border-b'>
       <FlowArtwork />
-      <div className='relative container mx-auto min-w-0 py-16 md:py-24'>
+      <div className='relative z-10 container mx-auto min-w-0 py-16 md:py-24'>
         <AnimatedSection>
           <div className='flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12 xl:gap-16'>
-            <div className='flex min-w-0 flex-1 flex-col gap-6'>
+            <div className='hero-copy flex min-w-0 flex-1 flex-col gap-6'>
               <p className='welcome-note'>
                 <span aria-hidden='true'>✳</span> Hello, welcome to my little corner of the web.
               </p>
@@ -108,9 +108,6 @@ export function Hero() {
             <div className='flex shrink-0 justify-center lg:justify-end'>
               <div className='portrait-scene relative mx-4 my-8 w-72 max-w-full md:w-88'>
                 <div className='portrait-orbit' aria-hidden='true' />
-                <span className='portrait-spark' aria-hidden='true'>
-                  ✳
-                </span>
                 <div className='portrait-frame relative h-96 md:h-110'>
                   <ProfileImage priority sizes='(min-width: 768px) 352px, 320px' />
                 </div>
