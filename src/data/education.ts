@@ -7,6 +7,8 @@ export interface Certificate {
   duration?: string;
   issuedDate?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   status: 'completed' | 'in-progress' | 'planned';
   description: string;
 }
@@ -56,6 +58,16 @@ export const education: Education[] = [
 ];
 export const teachingRoles: TeachingRole[] = [];
 export const certificates: Certificate[] = [
+  {
+    title: 'Intro to Programming',
+    issuer: 'Kaggle',
+    issuedDate: '7 November 2026',
+    status: 'completed',
+    image: assetPath('/Amirreza Hajizadeh - Intro to Programming.png'),
+    imageWidth: 4800,
+    imageHeight: 2960,
+    description: 'Completed the Intro to Programming course through Kaggle Learn.',
+  },
   {
     title: 'Python Intermediate',
     issuer: 'Sololearn',

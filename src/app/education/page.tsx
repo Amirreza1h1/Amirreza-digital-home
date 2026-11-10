@@ -126,8 +126,8 @@ export default function EducationPage() {
                       <Image
                         src={cert.image}
                         alt={`${cert.title} certificate issued by ${cert.issuer} to Amirreza Hajizadeh`}
-                        width={1754}
-                        height={1238}
+                        width={cert.imageWidth ?? 1754}
+                        height={cert.imageHeight ?? 1238}
                         sizes='(min-width: 768px) 50vw, 100vw'
                         className='border-border h-auto w-full rounded-lg border'
                       />
