@@ -30,6 +30,7 @@ export const profile: Profile = {
   previousLocation: 'Mashhad, Iran',
   timeZone: 'America/Toronto',
   emails: ['amirrezahajizadeh2002@gmail.com', 'amirreza.haji.0926264710@gmail.com'],
+  workResume: assetPath('/Amirreza_Hajizadeh_Canadian_Python_Developer_Resume.pdf'),
   academicResume: assetPath('/Academic_CV.pdf'),
   // Static imports produce a new asset URL whenever the image contents change.
   photo: profilePicture.src,
