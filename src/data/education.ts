@@ -59,13 +59,27 @@ export const education: Education[] = [
 export const teachingRoles: TeachingRole[] = [];
 export const certificates: Certificate[] = [
   {
+    title: 'Intro to Machine Learning',
+    issuer: 'Kaggle',
+    issuedDate: '18 November 2026',
+    status: 'completed',
+    image: assetPath('/Kaggle/Amirreza Hajizadeh - Intro to Machine Learning.png'),
+    imageWidth: 4800,
+    imageHeight: 2960,
+    description: 'Completed the Intro to Machine Learning course through Kaggle Learn.',
+  },
+  {
+    title: 'Python',
+    issuer: 'Kaggle',
+    issuedDate: '15 November 2026',
+    status: 'completed',
+    description: 'Completed the Python course through Kaggle Learn.',
+  },
+  {
     title: 'Intro to Programming',
     issuer: 'Kaggle',
     issuedDate: '7 November 2026',
     status: 'completed',
-    image: assetPath('/Amirreza Hajizadeh - Intro to Programming.png'),
-    imageWidth: 4800,
-    imageHeight: 2960,
     description: 'Completed the Intro to Programming course through Kaggle Learn.',
   },
   {
