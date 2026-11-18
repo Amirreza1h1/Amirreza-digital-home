@@ -40,7 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = personJsonLd();
 
   return (
-    <html lang='en' suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang='en'
+      data-scroll-behavior='smooth'
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head>
         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
