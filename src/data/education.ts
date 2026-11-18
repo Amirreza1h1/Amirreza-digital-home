@@ -73,6 +73,9 @@ export const certificates: Certificate[] = [
     issuer: 'Kaggle',
     issuedDate: '15 November 2026',
     status: 'completed',
+    image: assetPath('/Kaggle/Amirreza Hajizadeh - Python.png'),
+    imageWidth: 4800,
+    imageHeight: 2960,
     description: 'Completed the Python course through Kaggle Learn.',
   },
   {
@@ -80,6 +83,9 @@ export const certificates: Certificate[] = [
     issuer: 'Kaggle',
     issuedDate: '7 November 2026',
     status: 'completed',
+    image: assetPath('/Kaggle/Amirreza Hajizadeh - Intro to Programming.png'),
+    imageWidth: 4800,
+    imageHeight: 2960,
     description: 'Completed the Intro to Programming course through Kaggle Learn.',
   },
   {
